@@ -1,0 +1,6 @@
+silero-vad
+pyyaml
+colorama
+tqdm
+librosa
+numpy
