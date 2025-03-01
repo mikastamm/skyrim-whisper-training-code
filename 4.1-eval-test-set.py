@@ -211,7 +211,7 @@ def main():
     # List of checkpoint directories to evaluate.
     checkpoint_dirs = [
         "./whisper-skyrim-en/checkpoint-1200",
-        "./whisper-skyrim-en/checkpoint-600"
+       # "./whisper-skyrim-en/checkpoint-600"
     ]
 
     for ckpt in checkpoint_dirs:

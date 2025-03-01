@@ -241,9 +241,9 @@ def select_training_data(voice_lines: VoiceLines, phrases_file: str,
 def main():
     print_stage_header("Stage 2: Selecting Training Data")
     
-    # Check if phrases.txt exists
-    if not os.path.exists("phrases.txt"):
-        print("Error: phrases.txt not found")
+    # Check if words.txt exists
+    if not os.path.exists("words.txt"):
+        print("Error: words.txt not found")
         sys.exit(1)
     
     # Load filtered voice lines

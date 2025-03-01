@@ -6,7 +6,7 @@ import torch
 import numpy as np
 from tqdm import tqdm
 from typing import Dict, Any, List, Optional
-from datasets import Dataset, DatasetDict, Audio
+from datasets import Dataset, DatasetDict, Audio, load_dataset, concatenate_datasets
 from transformers import (
     WhisperFeatureExtractor,
     WhisperTokenizer,
@@ -49,6 +49,9 @@ AUDIO_COLUMN_NAME = "audio"  # Column name for audio data
 TEXT_COLUMN_NAME = "sentence"  # Column name for transcription text
 NUM_PROC = 1  # Number of processes for dataset operations (set to 1 to avoid multiprocessing issues)
 
+# Configurable percentage (between 0 and 1) of common-voice-en examples to add
+commonVoicePct01 = 0.1
+
 def main():
     print_stage_header("Stage 2: Training Whisper on Skyrim Dataset")
 
@@ -59,14 +62,13 @@ def main():
             if HF_TOKEN:
                 login(token=HF_TOKEN)
             else:
-                # Ask for token interactively
                 token = input("\nEnter your Hugging Face token (or press Enter to skip Hub upload): ")
                 if token.strip():
                     login(token=token)
                 else:
                     print("No token provided. Models won't be pushed to the Hub.")
                     PUSH_TO_HUB = False
-            
+
             if PUSH_TO_HUB:
                 print("Successfully logged in to Hugging Face Hub")
         except Exception as e:
@@ -74,59 +76,66 @@ def main():
             print("Training will continue but models won't be pushed.")
             PUSH_TO_HUB = False
 
-    # First, load the model to get the max token length
+    # Load the model to get configuration
     print(f"Loading Whisper model ({WHISPER_MODEL}) to get configuration...")
-    model = WhisperForConditionalGeneration.from_pretrained(WHISPER_MODEL).to(torch.device("cuda" if torch.cuda.is_available() else "cpu"))
+    model = WhisperForConditionalGeneration.from_pretrained(WHISPER_MODEL).to(
+        torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    )
     tokenizer = WhisperTokenizer.from_pretrained(WHISPER_MODEL, language=LANGUAGE, task=TASK)
     tokenizer.pad_token = tokenizer.eos_token  # Set pad token to end-of-sentence token
     max_label_length = model.config.max_length
     print(f"Maximum token length supported by model: {max_label_length}")
 
-    # Load the skyrim data from YAML files and prepare dataset
+    # Freeze encoder parameters so they are not updated during training
+    print("Freezing encoder parameters...")
+    encoder = model.get_encoder() if hasattr(model, "get_encoder") else model.model.encoder
+    for param in encoder.parameters():
+        param.requires_grad = False
+
+    # Load the Skyrim data from YAML files and prepare dataset
     def load_skyrim_data(split: str) -> Dataset:
         """
         Load data from YAML files and create a dataset with audio and transcription.
-        
-        Args:
-            split: 'train', 'validation', or 'test'
-            
-        Returns:
-            A Dataset object with 'audio' and 'sentence' columns
+        Format: ['audio', 'sentence', 'plugin', 'voice_type', 'duration_ms', 'internal_file_name']
         """
         file_path = {
             "train": TRAIN_YAML,
             "validation": VALIDATION_YAML,
             "test": TEST_YAML
         }.get(split)
-        
+
         if not file_path or not os.path.exists(file_path):
             raise ValueError(f"Invalid split '{split}' or file not found")
-        
+
         # Load YAML data
         voice_lines = VoiceLines.load_from_yaml(file_path)
-        
+
         # Create lists for features
         audio_paths = []
         sentences = []
-        plugins = []  # Store plugin info for augmentation
-        voice_types = []  # Store voice type for metrics
-        durations_ms = []  # Store duration for metrics
+        plugins = []        # Store plugin info for augmentation
+        voice_types = []    # Store voice type for metrics
+        durations_ms = []   # Store duration for metrics
         internal_file_names = []  # Store internal filename for identification
-        
+
         print(f"Checking {len(voice_lines.lines)} voice lines for {split} split...")
-        
+
         # Track voice lines that exceed token length
         long_sentences = 0
         missing_files = 0
-        
+
         # Extract data from VoiceLines
         for line in voice_lines.lines:
+            # Ensure the voice line is less than 30s long
+            if line.DurationMs >= 30000:
+                continue
+
             # Pre-check if the sentence would exceed token length
             tokens = tokenizer(line.Transcription).input_ids
             if len(tokens) >= max_label_length:
                 long_sentences += 1
                 continue
-                
+
             audio_path = os.path.join(FILTERED_VOICE_FILE_DIR, line.FileName)
             if os.path.exists(audio_path):
                 audio_paths.append(audio_path)
@@ -137,31 +146,25 @@ def main():
                 internal_file_names.append(line.InternalFileName)
             else:
                 missing_files += 1
-        
+
         if long_sentences > 0:
             print(f"Removed {long_sentences} voice lines that exceed the maximum token length ({max_label_length})")
-        
         if missing_files > 0:
             print(f"Warning: {missing_files} audio files were not found")
-        
+
         # Create a dataset
         data = {
-            "audio_path": audio_paths,
+            "audio": audio_paths,
             TEXT_COLUMN_NAME: sentences,
             "plugin": plugins,
             "voice_type": voice_types,
             "duration_ms": durations_ms,
             "internal_file_name": internal_file_names
         }
-        
+
         dataset = Dataset.from_dict(data)
-        
         # Add audio loading capability
-        dataset = dataset.cast_column("audio_path", Audio(sampling_rate=16000))
-        
-        # Rename the audio column to match expected format
-        dataset = dataset.rename_column("audio_path", AUDIO_COLUMN_NAME)
-        
+        dataset = dataset.cast_column("audio", Audio(sampling_rate=16000))
         print(f"Loaded {len(dataset)} examples for {split} split")
         return dataset
 
@@ -172,90 +175,73 @@ def main():
     dataset["validation"] = load_skyrim_data("validation")
     dataset["test"] = load_skyrim_data("test")
 
-    # Calculate and log dataset information
-    def log_dataset_info(dataset_dict):
-        total_duration_hours = 0
-        all_speakers = set()
-        
-        for split_name, split_dataset in dataset_dict.items():
-            # Calculate hours of audio
-            split_duration_ms = sum(split_dataset['duration_ms'])
-            split_duration_hours = split_duration_ms / (1000 * 60 * 60)
-            total_duration_hours += split_duration_hours
-            
-            # Count unique speakers
-            speakers = set(split_dataset['voice_type'])
-            all_speakers.update(speakers)
-            
-            # Average duration per voice line
-            avg_duration_s = np.mean(split_dataset['duration_ms']) / 1000
-            
-            print(f"\n{split_name.capitalize()} set statistics:")
-            print(f"  Voice lines: {len(split_dataset)}")
-            print(f"  Unique speakers: {len(speakers)}")
-            print(f"  Duration: {split_duration_hours:.2f} hours")
-            print(f"  Average voice line duration: {avg_duration_s:.2f} seconds")
-        
-        print(f"\nTotal dataset statistics:")
-        print(f"  Total voice lines: {sum(len(ds) for ds in dataset_dict.values())}")
-        print(f"  Total unique speakers: {len(all_speakers)}")
-        print(f"  Total duration: {total_duration_hours:.2f} hours")
+    # --- New: Sample and add common-voice-en data using streaming ---
+    def sample_common_voice_data(split: str, target_count: int):
+        """
+        Sample a target number of examples from common-voice-en using streaming.
+        Compute duration on the fly and bring the examples into the format:
+        ['audio', 'sentence', 'plugin', 'voice_type', 'duration_ms', 'internal_file_name'].
+        Only include examples with computed duration < 30s and prioritize diversity (one per speaker).
+        """
+        print(f"Sampling {target_count} examples from common-voice-en ({split} split)...")
+        ds_stream = load_dataset("mozilla-foundation/common_voice_11_0", "en", split=split, streaming=True)
+        samples = []
+        seen_speakers = set()
+        for example in ds_stream:
+            audio_data = example["audio"]
+            if "array" not in audio_data or "sampling_rate" not in audio_data:
+                continue
+            duration_sec = len(audio_data["array"]) / audio_data["sampling_rate"]
+            if duration_sec >= 30:
+                continue
+            speaker = example["client_id"]
+            if speaker in seen_speakers:
+                continue
+            seen_speakers.add(speaker)
+            samples.append({
+                "audio": audio_data,
+                "sentence": example["sentence"],
+                "plugin": "common_voice",
+                "voice_type": speaker,
+                "duration_ms": int(duration_sec * 1000),
+                "internal_file_name": f"common_voice_{speaker}"
+            })
+            if len(samples) >= target_count:
+                break
+        return Dataset.from_list(samples)
 
-    print("\n=== Dataset Information ===")
-    log_dataset_info(dataset)
-    print("=============================\n")
+    if commonVoicePct01 > 0:
+        # For training set
+        num_skyrim_train = len(dataset["train"])
+        target_common_train = int(num_skyrim_train * commonVoicePct01)
+        common_voice_train = sample_common_voice_data("train", target_common_train)
+        common_voice_train = common_voice_train.cast_column("audio", Audio(sampling_rate=16000))
+        dataset["train"] = concatenate_datasets([dataset["train"], common_voice_train])
+        print(f"Added {len(common_voice_train)} common-voice-en examples to the training set.")
 
-    # Define augmentation for training data
-    #augmentation = Compose(
-    #    [
-    #        TimeStretch(min_rate=0.85, max_rate=1.15, p=0.2, leave_length_unchanged=False),
-    #        Gain(min_gain_db=-6, max_gain_db=6, p=0.1),
-    #        PitchShift(min_semitones=-4, max_semitones=4, p=0.3),
-    #        OneOf(
-    #            [
-    #                AddGaussianNoise(min_amplitude=0.005, max_amplitude=0.015, p=1.0),
-    #            ],
-    #            p=0.3,
-    #        ),
-    #    ]
-    #)
-#
-   # def augment_dataset(batch):
-   #     """Apply audio augmentation to skyrim.esm files in the batch"""
-   #     # Apply data augmentation only to skyrim.esm files
-   #     is_skyrim_esm = batch["plugin"] == "skyrim.esm"
-   #     
-   #     # load audio data
-   #     sample = batch[AUDIO_COLUMN_NAME]
-   #     
-   #     # apply augmentation if it's a skyrim.esm file (with 50% probability)
-   #     if is_skyrim_esm and np.random.random() < 0.5:
-   #         augmented_waveform = augmentation(sample["array"], sample_rate=sample["sampling_rate"])
-   #         batch[AUDIO_COLUMN_NAME]["array"] = augmented_waveform
-   #     
-   #     return batch
+        # For validation set
+        num_skyrim_val = len(dataset["validation"])
+        target_common_val = int(num_skyrim_val * commonVoicePct01)
+        common_voice_val = sample_common_voice_data("validation", target_common_val)
+        common_voice_val = common_voice_val.cast_column("audio", Audio(sampling_rate=16000))
+        dataset["validation"] = concatenate_datasets([dataset["validation"], common_voice_val])
+        print(f"Added {len(common_voice_val)} common-voice-en examples to the validation set.")
 
-    # Apply augmentation to training data only (with single process to avoid multiprocessing issues)
-    #print("Applying augmentation to training data...")
-    #dataset["train"] = dataset["train"].map(augment_dataset, num_proc=NUM_PROC)
+    # Downstream processing treats all data the same.
+    # Function to prepare dataset for training
+    def prepare_dataset(batch):
+        """Prepare a batch for training by computing features and encoding text"""
+        audio = batch["audio"]
+        batch["input_features"] = feature_extractor(audio["array"], sampling_rate=audio["sampling_rate"]).input_features[0]
+        batch["labels"] = tokenizer(batch[TEXT_COLUMN_NAME]).input_ids
+        return batch
 
     # Load the pre-trained model components
     print(f"Loading Whisper model components ({WHISPER_MODEL})...")
     feature_extractor = WhisperFeatureExtractor.from_pretrained(WHISPER_MODEL)
     processor = WhisperProcessor.from_pretrained(WHISPER_MODEL, language=LANGUAGE, task=TASK)
 
-    # Function to prepare dataset for training
-    def prepare_dataset(batch):
-        """Prepare a batch for training by computing features and encoding text"""
-        # Load and process audio
-        audio = batch[AUDIO_COLUMN_NAME]
-        batch["input_features"] = feature_extractor(audio["array"], sampling_rate=audio["sampling_rate"]).input_features[0]
-        
-        # Encode the transcription
-        batch["labels"] = tokenizer(batch[TEXT_COLUMN_NAME]).input_ids
-        return batch
-
-    # Process the datasets (with single process to avoid multiprocessing issues)
+    # Process the datasets (all examples are now in a uniform format)
     print("Processing datasets...")
     columns_to_remove = [col for col in dataset["train"].column_names if col not in ["labels", "input_features"]]
     processed_dataset = dataset.map(prepare_dataset, remove_columns=columns_to_remove, num_proc=NUM_PROC)
@@ -265,21 +251,15 @@ def main():
         def __init__(self, processor, decoder_start_token_id):
             self.processor = processor
             self.decoder_start_token_id = decoder_start_token_id
-        
+
         def __call__(self, features: List[Dict[str, Any]]) -> Dict[str, torch.Tensor]:
-            # Process input features (audio)
             input_features = [{"input_features": feature["input_features"]} for feature in features]
             batch = self.processor.feature_extractor.pad(input_features, return_tensors="pt")
-            
-            # Process label sequences (transcriptions)
             label_features = [{"input_ids": feature["labels"]} for feature in features]
             labels_batch = self.processor.tokenizer.pad(label_features, return_tensors="pt")
             labels = labels_batch["input_ids"].masked_fill(labels_batch.attention_mask.ne(1), -100)
-            
-            # Optionally remove the beginning-of-sequence token if it was added
             if (labels[:, 0] == self.decoder_start_token_id).all().cpu().item():
                 labels = labels[:, 1:]
-            
             batch["labels"] = labels
             return batch
 
@@ -292,20 +272,12 @@ def main():
     wer_metric = evaluate.load("wer")
 
     def compute_metrics(pred):
-        """Compute Word Error Rate metrics for evaluation"""
         pred_ids = pred.predictions
         label_ids = pred.label_ids
-        
-        # Replace -100 with pad token id before decoding
         label_ids[label_ids == -100] = tokenizer.pad_token_id
-        
-        # Decode predictions and references
         pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
         label_str = tokenizer.batch_decode(label_ids, skip_special_tokens=True)
-        
-        # Compute WER
         wer = 100 * wer_metric.compute(predictions=pred_str, references=label_str)
-        
         return {"wer": wer}
 
     # Set up training arguments
@@ -315,7 +287,7 @@ def main():
         gradient_accumulation_steps=4,
         learning_rate=1e-5,
         num_train_epochs=8,
-        max_steps=5000,  # Backup limit
+        max_steps=5000,
         warmup_steps=500,
         lr_scheduler_type="cosine",
         weight_decay=0.01,
@@ -334,7 +306,7 @@ def main():
         greater_is_better=False,
         push_to_hub=PUSH_TO_HUB,
         hub_model_id=REPO_NAME,
-        dataloader_num_workers=4  # Avoid multiprocessing issues in dataloaders
+        dataloader_num_workers=4
     )
 
     # Initialize the Trainer
@@ -355,21 +327,15 @@ def main():
     training_time = time.time() - start_time
 
     print(f"Training completed in {training_time/60:.1f} minutes")
-
-    # Save the final model
     trainer.save_model(os.path.join(OUTPUT_DIR, "final"))
 
     # Evaluate on test set
     print("Evaluating on test set...")
     test_results = trainer.evaluate(processed_dataset["test"])
     print(f"Test WER: {test_results['eval_wer']:.2f}%")
-
     print("Training complete!")
 
-# Main guard to prevent multiprocessing issues
 if __name__ == "__main__":
-    # Add multiprocessing support for Windows
     if sys.platform == 'win32':
         multiprocessing.freeze_support()
-    
     main()
