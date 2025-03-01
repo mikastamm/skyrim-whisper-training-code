@@ -15,7 +15,7 @@ COLOR_RESET = "\033[0m"       # Reset to default color
 
 # Configuration variables
 PREVIEW_OUTPUT_DIR = "speaker_preview"   # Destination folder for preview copies.
-INPUT_YAML = "0-parsed.yaml"             # YAML file produced by Stage 0 CSV Parsing.
+INPUT_YAML = "1-filtered.yaml"             # YAML file produced by Stage 0 CSV Parsing.
 NUM_PREVIEW_FILES = 1                    # Number of files to select per speaker.
 
 # Import shared classes from Pipeline.py

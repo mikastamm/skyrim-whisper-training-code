@@ -85,7 +85,25 @@ FORBIDDEN_SPEAKERS = [
     "qadojovoice",
     "raynesvoice",
     "rgbanditvoice",
-    "saltythroatvoice"
+    "saltythroatvoice",
+    "cot_construct",
+"cot_flies",
+"cot_gk",
+"cot_idara",
+"cot_krellyk",
+"cot_lork",
+"cot_maggs",
+"cot_nelly",
+"cot_strahg",
+"cot_tbr",
+"cot_ven",
+"cyrfemalchild",
+"dg04groshakvoice",
+"dg04molagbal",
+"femaledarkelfheneri",
+"frjtchiefvoice",
+"frtrecruitervoice",
+"jrdumzbtharvoice"
 ]
 
 # Forbidden substrings that indicate low quality transcriptions
@@ -115,7 +133,7 @@ SILENCE_THRESHOLD_MID_SEC = 1.0
 # of the nth highest speaker (configurable)
 SPEAKER_N = 3  
 # For target words: the maximum allowed occurrences per target word
-MAX_WORD_OCCURRENCES = 50
+MAX_WORD_OCCURRENCES = 60
 
 # Input and output files
 INPUT_FILE = "0-parsed.yaml"
@@ -176,7 +194,12 @@ def filter_has_no_target_word(voice_lines: VoiceLines, original_total):
                 return True
         return False
     
-    result = voice_lines.filter("No Target Word", contains_target_word)
+    filtered_lines = []
+    for line in tqdm.tqdm(voice_lines.lines, desc="Filtering for target words"):
+        if contains_target_word(line):
+            filtered_lines.append(line)
+    
+    result = VoiceLines(filtered_lines)
     
     # Print total removed and percentage of original
     removed_total = original_total - len(result)
@@ -261,8 +284,8 @@ def balance_words(voice_lines: VoiceLines) -> VoiceLines:
     changed = True
     while changed:
         changed = False
-        # For each target phrase, if its count exceeds the limit, try to remove a candidate line
-        for phrase in target_phrases:
+        # Iterate over each target phrase with a progress bar.
+        for phrase in tqdm.tqdm(target_phrases, desc="Balancing target words", leave=False):
             while counts[phrase] > MAX_WORD_OCCURRENCES:
                 # Candidates: lines (still kept) that contain this phrase and for which every contained target phrase
                 # is already over the limit.
@@ -287,7 +310,7 @@ def balance_words(voice_lines: VoiceLines) -> VoiceLines:
 def filter_missing_audios(voice_lines, original_total):
     """Remove voice lines with missing audio files."""
     result = voice_lines.filter("Missing Audio", 
-                             lambda line: line.FileName != "_.wav" and os.path.exists(os.path.join(VOICE_FILE_DIR, line.FileName)))
+                             lambda line: line.FileName != "_.wav" or os.path.exists(os.path.join(VOICE_FILE_DIR, line.FileName)))  
     
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
@@ -551,21 +574,24 @@ def main():
     voice_lines = VoiceLines.load_from_yaml(INPUT_FILE)
     initial_count = len(voice_lines)
     
+    # Randomize the order of voicelines before filtering
+    print(f"{Fore.CYAN}Randomizing voicelines order...")
+    np.random.shuffle(voice_lines.lines)
+    
     print(f"Starting filtering with {initial_count} voice lines")
     
     original_total = len(voice_lines)
     
-    #voice_lines = filter_empty_transcriptions(voice_lines, original_total)
-    #voice_lines = filter_forbidden_speakers(voice_lines, original_total)
-    #voice_lines = filter_forbidden_substrings(voice_lines, original_total)
-    #voice_lines = filter_by_word_count(voice_lines, original_total)
-    #voice_lines = filter_text_in_brackets(voice_lines, original_total)
-    #voice_lines = filter_repetitive_words(voice_lines, original_total)
-    #voice_lines = filter_missing_audios(voice_lines, original_total)
-    #voice_lines = filter_has_no_target_word(voice_lines, original_total)
+    # voice_lines = filter_empty_transcriptions(voice_lines, original_total)
+    # voice_lines = filter_forbidden_speakers(voice_lines, original_total)
+    # voice_lines = filter_forbidden_substrings(voice_lines, original_total)
+    # voice_lines = filter_by_word_count(voice_lines, original_total)
+    # voice_lines = filter_text_in_brackets(voice_lines, original_total)
+    # voice_lines = filter_repetitive_words(voice_lines, original_total)
+    voice_lines = filter_missing_audios(voice_lines, original_total)
+    # voice_lines = filter_has_no_target_word(voice_lines, original_total)
     
     #voice_lines = measure_audio_durations(voice_lines)
-     
     #voice_lines = filter_by_audio_duration(voice_lines, original_total)
     #voice_lines = filter_by_silero_vad(voice_lines, original_total)
     
@@ -573,7 +599,7 @@ def main():
     # print(f"{Fore.CYAN}Balancing distribution by speaker...")
     # voice_lines = balance_speakers(voice_lines)
     print(f"{Fore.CYAN}Balancing distribution by target words...")
-    voice_lines = balance_words(voice_lines)
+    #voice_lines = balance_words(voice_lines)
     
     remaining_count = len(voice_lines)
     removed_count = initial_count - remaining_count
@@ -585,7 +611,7 @@ def main():
     
     voice_lines.save_to_yaml(OUTPUT_FILE)
     
-    # copy_audio_files(voice_lines)
+    copy_audio_files(voice_lines)
     
     return 0
 

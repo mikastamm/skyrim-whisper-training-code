@@ -30,7 +30,7 @@ def transcribe(model, processor, audio_dict):
     transcription = processor.tokenizer.batch_decode(predicted_ids, skip_special_tokens=True)[0]
     return transcription
 
-def evaluate_common_voice(model, processor, dataset, num_samples=2000):
+def evaluate_common_voice(model, processor, dataset, num_samples=15000):
     """
     Evaluates the given model on the first num_samples of the Common Voice English test set.
     Returns the computed WER (in percentage) on these samples.
@@ -72,8 +72,10 @@ def main():
     
     # Configurable list of checkpoint directories.
     checkpoint_dirs = [
-        "./whisper-skyrim-en/checkpoint-1200",
-     #   "./whisper-skyrim-en/checkpoint-600"
+        "./whisper-skyrim-en/checkpoint-2500",
+        "./whisper-skyrim-en/checkpoint-2000",
+        "./whisper-skyrim-en/checkpoint-1500",
+        "./whisper-skyrim-en/checkpoint-1000",
     ]
     
     # Evaluate each checkpoint.
