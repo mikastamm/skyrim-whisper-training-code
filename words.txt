@@ -344,7 +344,7 @@ Drennen
 Drevis Neloren
 Drifa
 Drovas Relvi
-Dro’Ba
+Dro-Ba
 Dro’marash
 Duach
 Dubok
@@ -362,7 +362,7 @@ Dwemer Museum
 Ebony Warrior
 Eddvia
 Edorfin
-Edorfin’s Journal
+Edorfins Journal
 Eduard Hvitulfr
 Edwayne
 Efram
@@ -373,8 +373,8 @@ Eldri
 Elenwen
 Elethor
 Elisif the Fair
-Elisif’s Husband
-Elisif’s Widow
+Elisifs Husband
+Elisifs Widow
 Eltonbrand
 Eltrys
 Eltrys’s Note
@@ -384,7 +384,7 @@ Endon
 Endrast
 Endune
 Engineering Report
-Engineer’s Journal
+Engineers Journal
 Engraved Falmor
 Ennbjorn
 Ennis
@@ -406,7 +406,6 @@ Estormo
 Etienne Rarnis
 Eusmil
 Even Better
-Even Better’s Sister
 Evette San
 Eydis
 Faendal
@@ -429,13 +428,10 @@ Faralda
 Farengar Secret-Fire
 Farkas
 Farmer
-Farmer’s Wife
 Fasendil
 Fastred
 Faulkreath Guard
-Faulkreath’s Journal
 Felldir the Old
-Felldir’s Ghost
 Fellglow Keep
 Fennorian
 Fenrald
@@ -446,7 +442,7 @@ Festus Krex
 Fihada
 Filnjar
 Finna
-Finn’s Lute
+Finns Lute
 Fjola
 Fjotli
 Flin Horstad

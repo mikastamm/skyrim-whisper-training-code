@@ -1,0 +1,1054 @@
+bin_scores:
+  4.2-transcription_results_checkpoint-1200:
+    all_data: 1.2528231308582507
+    top_25: 0.2917747267222154
+    next_25: 1.9300924710481022
+    next_25_after_top_50: 6.588961313295914
+    bottom_25: 16.212406015037597
+  4.2-transcription_results_checkpoint-600:
+    all_data: 1.1477167149436545
+    top_25: 0.280526561168175
+    next_25: 1.9027887167818907
+    next_25_after_top_50: 6.199227472991731
+    bottom_25: 12.44047619047619
+phrase_info:
+  Adara:
+    training_count: 4
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 50.0
+  Addvar:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Akavir:
+    training_count: 25
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Alva:
+    training_count: 12
+    baseline_error: 28.571428571428573
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Anga's Mill:
+    training_count: 5
+    baseline_error: 66.66666666666667
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Argonian:
+    training_count: 107
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Froa:
+    training_count: 7
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Aringoth:
+    training_count: 10
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 22.22222222222222
+    transcription_results_checkpoint-600: 22.22222222222222
+  Arngeir:
+    training_count: 2
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 66.66666666666667
+    transcription_results_checkpoint-600: 66.66666666666667
+  Atmora:
+    training_count: 5
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Aventus Aretino:
+    training_count: 8
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 0.0
+  Azura:
+    training_count: 47
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 50.0
+  Balgruuf:
+    training_count: 18
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 40.0
+  Bandit:
+    training_count: 379
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Bards College:
+    training_count: 48
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Battle-Borns:
+    training_count: 38
+    baseline_error: 33.333333333333336
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Belethor:
+    training_count: 23
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Benor:
+    training_count: 2
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Bette:
+    training_count: 370
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Birna:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Black-Briars:
+    training_count: 9
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Blades:
+    training_count: 116
+    baseline_error: 5.882352941176471
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 5.882352941176471
+  Bolli:
+    training_count: 10
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Brand-Shei:
+    training_count: 11
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 20.0
+  Brelas:
+    training_count: 2
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 100.0
+  Breton:
+    training_count: 50
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Brill:
+    training_count: 26
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Brina Merilis:
+    training_count: 4
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Bryling:
+    training_count: 7
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 33.333333333333336
+  Brynjolf:
+    training_count: 62
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Butcher:
+    training_count: 44
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Calcelmo:
+    training_count: 21
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Caller:
+    training_count: 16
+    baseline_error: 75.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Candlehearth Hall:
+    training_count: 18
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Carriage Driver:
+    training_count: 6
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Castle Dour:
+    training_count: 21
+    baseline_error: 66.66666666666667
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 33.333333333333336
+  Chaurus:
+    training_count: 15
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Commander Maro:
+    training_count: 14
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Companions:
+    training_count: 87
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Courier:
+    training_count: 53
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dagur:
+    training_count: 2
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 83.33333333333333
+    transcription_results_checkpoint-600: 83.33333333333333
+  Dark Brotherhood:
+    training_count: 102
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Darkwater Crossing:
+    training_count: 2
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dawnguard:
+    training_count: 53
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dawnstar:
+    training_count: 90
+    baseline_error: 36.36363636363637
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Delphine:
+    training_count: 21
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Delvin Mallory:
+    training_count: 3
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dengeir:
+    training_count: 14
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dimhollow Crypt:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dirge:
+    training_count: 9
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 100.0
+  Dorthe:
+    training_count: 9
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Dragon Bridge:
+    training_count: 28
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dragonborn:
+    training_count: 347
+    baseline_error: 0.970873786407767
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dragonsreach:
+    training_count: 70
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Draugr:
+    training_count: 125
+    baseline_error: 66.66666666666667
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Drifa:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Dunmer:
+    training_count: 81
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Elenwen:
+    training_count: 38
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Elethor:
+    training_count: 23
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Endon:
+    training_count: 5
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 40.0
+    transcription_results_checkpoint-600: 40.0
+  Enthir:
+    training_count: 5
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Eorlund Gray-Mane:
+    training_count: 23
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Erdi:
+    training_count: 1
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 0.0
+  Erikur:
+    training_count: 22
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Even Better:
+    training_count: 15
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Eydis:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Faendal:
+    training_count: 8
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Falion:
+    training_count: 33
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Falkreath:
+    training_count: 108
+    baseline_error: 56.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Farkas:
+    training_count: 4
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Farmer:
+    training_count: 118
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Fastred:
+    training_count: 2
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 40.0
+  Feran Sadri:
+    training_count: 7
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Fihada:
+    training_count: 1
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Frabbi:
+    training_count: 12
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 50.0
+  Fralia Gray-Mane:
+    training_count: 14
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Hrongar:
+    training_count: 4
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 100.0
+  Fura Bloodmouth:
+    training_count: 7
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Guard:
+    training_count: 379
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Galmar Stone-Fist:
+    training_count: 1
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Ghosts:
+    training_count: 35
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Wench:
+    training_count: 52
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Garan Marethi:
+    training_count: 8
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  General Tullius:
+    training_count: 48
+    baseline_error: 72.72727272727273
+    transcription_results_checkpoint-1200: 9.090909090909092
+    transcription_results_checkpoint-600: 0.0
+  Gerdur:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 75.0
+    transcription_results_checkpoint-600: 75.0
+  Gianna:
+    training_count: 4
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Giants:
+    training_count: 38
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Goldenglow Estate:
+    training_count: 18
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Gourmet:
+    training_count: 45
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Gray-Manes:
+    training_count: 25
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Grelka:
+    training_count: 9
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Gulum-Ei:
+    training_count: 12
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Gunmar:
+    training_count: 16
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Hadvar:
+    training_count: 3
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Haelga:
+    training_count: 40
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Half-Moon Mill:
+    training_count: 1
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Harkon:
+    training_count: 57
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Helgen:
+    training_count: 58
+    baseline_error: 21.428571428571427
+    transcription_results_checkpoint-1200: 7.142857142857143
+    transcription_results_checkpoint-600: 7.142857142857143
+  Hern:
+    training_count: 4
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  High Hrothgar:
+    training_count: 29
+    baseline_error: 86.66666666666667
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  High King Torygg:
+    training_count: 5
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Hircine:
+    training_count: 7
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Hroggar:
+    training_count: 10
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Idgrod Ravencrone:
+    training_count: 1
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 75.0
+    transcription_results_checkpoint-600: 75.0
+  Igmund:
+    training_count: 12
+    baseline_error: 77.77777777777777
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Horker:
+    training_count: 81
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Skeever:
+    training_count: 96
+    baseline_error: 75.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Wolf:
+    training_count: 50
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Moth Priest:
+    training_count: 35
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Illia:
+    training_count: 29
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Imperial Legion:
+    training_count: 27
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Irileth:
+    training_count: 11
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Isran:
+    training_count: 46
+    baseline_error: 57.142857142857146
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 14.285714285714286
+  Ivarstead:
+    training_count: 29
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Jarl Siddgeir:
+    training_count: 4
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 33.333333333333336
+  Jofthor:
+    training_count: 2
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Jorleif:
+    training_count: 6
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Jorrvaskr:
+    training_count: 32
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Jurgen Windcaller:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 50.0
+  Karliah:
+    training_count: 39
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 7.6923076923076925
+    transcription_results_checkpoint-600: 7.6923076923076925
+  Karthwasten:
+    training_count: 13
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Keerava:
+    training_count: 10
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 50.0
+  Khajiit:
+    training_count: 119
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Kolskeggr Mine:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Kraldar:
+    training_count: 6
+    baseline_error: 66.66666666666667
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Kynesgrove:
+    training_count: 38
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Laelette:
+    training_count: 2
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 83.33333333333333
+  Lod:
+    training_count: 9
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Lurbuk:
+    training_count: 13
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Madanach:
+    training_count: 40
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Madesi:
+    training_count: 7
+    baseline_error: 66.66666666666667
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 0.0
+  Markarth:
+    training_count: 208
+    baseline_error: 53.57142857142857
+    transcription_results_checkpoint-1200: 3.5714285714285716
+    transcription_results_checkpoint-600: 3.5714285714285716
+  Maven Black-Briar:
+    training_count: 29
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Mercer Frey:
+    training_count: 8
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 25.0
+    transcription_results_checkpoint-600: 25.0
+  Mjoll:
+    training_count: 20
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Morthal:
+    training_count: 68
+    baseline_error: 64.28571428571429
+    transcription_results_checkpoint-1200: 7.142857142857143
+    transcription_results_checkpoint-600: 7.142857142857143
+  Mount Anthor:
+    training_count: 6
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Movarth:
+    training_count: 8
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 33.333333333333336
+  Movarth's Lair:
+    training_count: 1
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 33.333333333333336
+  Mythic Dawn:
+    training_count: 26
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Netch:
+    training_count: 24
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Nocturnal:
+    training_count: 12
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Oblivion:
+    training_count: 94
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Olaf One-Eye:
+    training_count: 13
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Old Hroldan:
+    training_count: 11
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 10.0
+    transcription_results_checkpoint-600: 10.0
+  Orthjolf:
+    training_count: 13
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Paarthurnax:
+    training_count: 14
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 20.0
+    transcription_results_checkpoint-600: 55.0
+  Penitus Oculatus:
+    training_count: 14
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Pilgrim:
+    training_count: 39
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Ester:
+    training_count: 79
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Ralof:
+    training_count: 9
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Raven Rock:
+    training_count: 85
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Redguard:
+    training_count: 62
+    baseline_error: 60.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Ria:
+    training_count: 1
+    baseline_error: 4.285714285714286
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Riften:
+    training_count: 236
+    baseline_error: 72.54901960784314
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Riverwood:
+    training_count: 62
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Rorikstead:
+    training_count: 66
+    baseline_error: 80.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Runil:
+    training_count: 5
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Sabjorn:
+    training_count: 32
+    baseline_error: 33.333333333333336
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 33.333333333333336
+  Savos Aren:
+    training_count: 3
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Septim:
+    training_count: 178
+    baseline_error: 90.9090909090909
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Septims:
+    training_count: 94
+    baseline_error: 90.9090909090909
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Serana:
+    training_count: 50
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Shor's Stone:
+    training_count: 9
+    baseline_error: 80.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Shrine of Azura:
+    training_count: 13
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 50.0
+  Siddgeir:
+    training_count: 12
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 25.0
+    transcription_results_checkpoint-600: 50.0
+  Sigrid:
+    training_count: 1
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 50.0
+  Silver Hand:
+    training_count: 4
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Skald:
+    training_count: 14
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 60.0
+    transcription_results_checkpoint-600: 60.0
+  Skald the Elder:
+    training_count: 5
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 50.0
+  Skjor:
+    training_count: 10
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 25.0
+    transcription_results_checkpoint-600: 0.0
+  Skull Cave:
+    training_count: 3
+    baseline_error: 33.333333333333336
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 0.0
+  Skyforge:
+    training_count: 37
+    baseline_error: 33.333333333333336
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Solitude:
+    training_count: 277
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Sovngarde:
+    training_count: 74
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 10.0
+  Stendarr:
+    training_count: 47
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Stormcloaks:
+    training_count: 199
+    baseline_error: 87.03703703703704
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Sven:
+    training_count: 19
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 50.0
+  Sybille Stentor:
+    training_count: 2
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 100.0
+  Talen-Jei:
+    training_count: 1
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Talos:
+    training_count: 122
+    baseline_error: 11.538461538461538
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Tamriel:
+    training_count: 137
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Tekla:
+    training_count: 8
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 100.0
+    transcription_results_checkpoint-600: 100.0
+  Temple of Mara:
+    training_count: 34
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  The Bannered Mare:
+    training_count: 20
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  The Bee and Barb:
+    training_count: 21
+    baseline_error: 33.333333333333336
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  The College of Winterhold:
+    training_count: 27
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  The Ratway:
+    training_count: 43
+    baseline_error: 62.5
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  The Throat of the World:
+    training_count: 7
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  The Winking Skeever:
+    training_count: 24
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Thieves Guild:
+    training_count: 100
+    baseline_error: 28.571428571428573
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Tonilia:
+    training_count: 4
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 100.0
+  Torygg:
+    training_count: 36
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 11.11111111111111
+    transcription_results_checkpoint-600: 11.11111111111111
+  Ulfric Stormcloak:
+    training_count: 55
+    baseline_error: 64.28571428571429
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Ustengrav:
+    training_count: 1
+    baseline_error: 50.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 50.0
+  Vald:
+    training_count: 8
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 50.0
+    transcription_results_checkpoint-600: 100.0
+  Nobleman:
+    training_count: 7
+    baseline_error: 0.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Vex:
+    training_count: 23
+    baseline_error: 5.2631578947368425
+    transcription_results_checkpoint-1200: 5.2631578947368425
+    transcription_results_checkpoint-600: 5.2631578947368425
+  Viarmo:
+    training_count: 14
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Vilemyr Inn:
+    training_count: 1
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 100.0
+  Vilkas:
+    training_count: 6
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Vingalmo:
+    training_count: 16
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Whistling Mine:
+    training_count: 1
+    baseline_error: 33.333333333333336
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Whiterun:
+    training_count: 283
+    baseline_error: 87.5
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Windhelm:
+    training_count: 201
+    baseline_error: 23.333333333333332
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Winterhold:
+    training_count: 143
+    baseline_error: 14.0
+    transcription_results_checkpoint-1200: 0.0
+    transcription_results_checkpoint-600: 0.0
+  Wolfskull Cave:
+    training_count: 3
+    baseline_error: 33.333333333333336
+    transcription_results_checkpoint-1200: 33.333333333333336
+    transcription_results_checkpoint-600: 0.0
+  Ysgramor:
+    training_count: 27
+    baseline_error: 100.0
+    transcription_results_checkpoint-1200: 11.11111111111111
+    transcription_results_checkpoint-600: 11.11111111111111
