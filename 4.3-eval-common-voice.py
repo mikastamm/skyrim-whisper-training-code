@@ -72,10 +72,7 @@ def main():
     
     # Configurable list of checkpoint directories.
     checkpoint_dirs = [
-        "./whisper-skyrim-en/checkpoint-2500",
         "./whisper-skyrim-en/checkpoint-2000",
-        "./whisper-skyrim-en/checkpoint-1500",
-        "./whisper-skyrim-en/checkpoint-1000",
     ]
     
     # Evaluate each checkpoint.

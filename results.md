@@ -89,3 +89,20 @@ Baseline Model (whisper-base.en):
   Average Overall WER: 18.27%
   Average Phrase Error: 60.47%
   Untestable Voice Lines: 0
+
+# Train 6: Same as above, but at least 3 occurences of each phrase to include (5241 Training Samples)
+
+=== Aggregated Evaluation Results ===
+Finetuned Model:
+  Average Overall WER: 14.90%
+  Average Phrase Error: 15.17%
+  Untestable Voice Lines: 0
+
+Baseline Model (whisper-base.en):
+  Average Overall WER: 19.20%
+  Average Phrase Error: 56.72%
+  Untestable Voice Lines: 0
+
+=== Evaluation Results on Common Voice English ===
+base: 30.73%
+checkpoint-2000: 38.27%

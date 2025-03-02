@@ -10,9 +10,9 @@ with details about any discarded phrases.
 
 # ----------------------- Configurable Constants -----------------------
 # Filtering parameters for training data selection.
-MIN_APPEARANCES = 3       # Minimum number of voice lines required for a phrase.
-TARGET_APPEARANCES = 5    # Target number of voice lines to aim for per phrase.
-MAX_APPEARANCES = 8       # Maximum number of voice lines allowed per phrase.
+MIN_APPEARANCES = 5       # Minimum number of voice lines required for a phrase.
+TARGET_APPEARANCES = 40    # Target number of voice lines to aim for per phrase.
+MAX_APPEARANCES = 70     # Maximum number of voice lines allowed per phrase.
 WORDS_FILE = "words.txt"  # File containing words (used to check existence).
 INPUT_FILE = "1-filtered.yaml"  # YAML file to load filtered voice lines.
 OUTPUT_TRAINING_DATA = "2-training-data.yaml"  # Output YAML for selected training data.
