@@ -5,14 +5,14 @@ It loads filtered voice lines from a YAML file, checks for phrase occurrence
 using normalized matching, and then selects voice lines based on configurable
 criteria (minimum, target, and maximum appearances per phrase). The selected
 training data (as a count and list of voice lines) is then saved to disk, along
-with details about any discarded phrases.
+with details about any discarded phrases as a list of voice lines.
 """
 
 # ----------------------- Configurable Constants -----------------------
 # Filtering parameters for training data selection.
 MIN_APPEARANCES = 5       # Minimum number of voice lines required for a phrase.
 TARGET_APPEARANCES = 40    # Target number of voice lines to aim for per phrase.
-MAX_APPEARANCES = 70     # Maximum number of voice lines allowed per phrase.
+MAX_APPEARANCES = 70      # Maximum number of voice lines allowed per phrase.
 WORDS_FILE = "words.txt"  # File containing words (used to check existence).
 INPUT_FILE = "1-filtered.yaml"  # YAML file to load filtered voice lines.
 OUTPUT_TRAINING_DATA = "2-training-data.yaml"  # Output YAML for selected training data.
@@ -178,18 +178,20 @@ def has_significant_overlap(phrase: str, selected_phrases: List[str]) -> bool:
 def select_training_data(voice_lines: VoiceLines, phrases_file: str, 
                          min_appearances: int = MIN_APPEARANCES, 
                          target_appearances: int = TARGET_APPEARANCES, 
-                         max_appearances: int = MAX_APPEARANCES) -> Tuple[SelectedTrainingData, Dict[str, str]]:
+                         max_appearances: int = MAX_APPEARANCES) -> Tuple[SelectedTrainingData, Dict[str, str], List[VoiceLine]]:
     """
     Select training data based on the phrases and selection criteria.
     
     Returns:
-        Tuple of (SelectedTrainingData, Dict of discarded phrases with reasons)
+        Tuple of (SelectedTrainingData, Dict of discarded phrases with reasons, List of discarded voice lines)
     """
     with open(phrases_file, 'r', encoding='utf-8') as f:
         phrase_texts = [line.strip() for line in f if line.strip()]
     
     phrases = {text: Phrase(text) for text in phrase_texts}
     discarded_phrases = {}
+    discarded_voice_lines: List[VoiceLine] = []
+    discarded_voice_line_ids: Set[str] = set()
     selected_training_data = SelectedTrainingData()
     
     all_voice_lines = voice_lines.lines.copy()
@@ -202,13 +204,18 @@ def select_training_data(voice_lines: VoiceLines, phrases_file: str,
             if voice_line_contains_phrase(voice_line, phrase_text):
                 phrase_to_voice_lines[phrase_text].append(voice_line)
     
-    selected_voice_line_ids = set()
+    selected_voice_line_ids: Set[str] = set()
     
     # First pass: Try to achieve minimum criteria for each phrase.
     for phrase_text, phrase_obj in phrases.items():
         available_voice_lines = phrase_to_voice_lines[phrase_text]
         if len(available_voice_lines) < min_appearances:
             discarded_phrases[phrase_text] = f"Not enough voice lines (found {len(available_voice_lines)}, need {min_appearances})"
+            # Add all available voice lines to discarded list.
+            for vl in available_voice_lines:
+                if vl.InternalFileName not in discarded_voice_line_ids:
+                    discarded_voice_lines.append(vl)
+                    discarded_voice_line_ids.add(vl.InternalFileName)
             continue
         
         selected_transcriptions = []
@@ -224,7 +231,6 @@ def select_training_data(voice_lines: VoiceLines, phrases_file: str,
             
             if (len(phrase_obj.determining.selected_voice_lines) < target_appearances and
                 (not punctuation or not phrase_obj.determining.punctuation_types.get(punctuation, False))):
-                
                 phrase_obj.determining.selected_voice_lines.append(voice_line)
                 phrase_obj.determining.speakers.add(voice_line.VoiceType)
                 selected_voice_line_ids.add(voice_line.InternalFileName)
@@ -239,10 +245,18 @@ def select_training_data(voice_lines: VoiceLines, phrases_file: str,
         
         if len(phrase_obj.determining.selected_voice_lines) < min_appearances:
             discarded_phrases[phrase_text] = f"Could not meet minimum appearances after filtering (found {len(phrase_obj.determining.selected_voice_lines)}, need {min_appearances})"
+            for vl in phrase_obj.determining.selected_voice_lines:
+                if vl.InternalFileName not in discarded_voice_line_ids:
+                    discarded_voice_lines.append(vl)
+                    discarded_voice_line_ids.add(vl.InternalFileName)
             continue
             
         if len(phrase_obj.determining.speakers) < 2:
             discarded_phrases[phrase_text] = "Only one speaker available"
+            for vl in phrase_obj.determining.selected_voice_lines:
+                if vl.InternalFileName not in discarded_voice_line_ids:
+                    discarded_voice_lines.append(vl)
+                    discarded_voice_line_ids.add(vl.InternalFileName)
             continue
             
         phrase_obj.voice_lines = phrase_obj.determining.selected_voice_lines
@@ -251,7 +265,7 @@ def select_training_data(voice_lines: VoiceLines, phrases_file: str,
             if vl not in selected_training_data.voice_lines:
                 selected_training_data.voice_lines.append(vl)
     
-    return selected_training_data, discarded_phrases
+    return selected_training_data, discarded_phrases, discarded_voice_lines
 
 def main():
     print_stage_header("Stage 2: Selecting Training Data")
@@ -261,16 +275,21 @@ def main():
         sys.exit(1)
     
     voice_lines = VoiceLines.load_from_yaml(INPUT_FILE)
-    training_data, discarded_phrases = select_training_data(voice_lines, PHRASES_FILE)
+    training_data, discarded_phrases, discarded_voice_lines = select_training_data(voice_lines, PHRASES_FILE)
     
     # Save selected training data in the new format: a YAML with count and lines.
     training_data.save_to_yaml(OUTPUT_TRAINING_DATA)
     
+    # Write discarded voice lines in the same format as training data YAML.
+    discarded_data = {
+        "count": len(discarded_voice_lines),
+        "lines": [vl.to_dict() for vl in discarded_voice_lines]
+    }
     with open(OUTPUT_DISCARDED, 'w', encoding='utf-8') as f:
-        yaml.dump({"discarded_phrases": discarded_phrases}, f, sort_keys=False, default_flow_style=False)
+        yaml.dump(discarded_data, f, sort_keys=False, default_flow_style=False)
     
     print(f"We have {training_data.duration_minutes/60:.2f} hours of training data")
-    print(f"Saved {len(discarded_phrases)} discarded phrases to {OUTPUT_DISCARDED}")
+    print(f"Saved {len(discarded_voice_lines)} discarded voice lines to {OUTPUT_DISCARDED}")
     print(f"Stage 2 complete. Selected {len(training_data.phrases)} phrases with {len(training_data.voice_lines)} voice lines.")
 
 if __name__ == "__main__":

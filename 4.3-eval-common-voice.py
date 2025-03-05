@@ -63,16 +63,16 @@ def main():
     results = {}
     
     # Evaluate base model.
-    print("\nEvaluating base model (openai/whisper-base.en)...")
-    base_model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-base.en").to(device)
-    base_processor = WhisperProcessor.from_pretrained("openai/whisper-base.en", language="english", task="transcribe")
-    wer_base = evaluate_common_voice(base_model, base_processor, dataset, num_samples=num_samples)
-    results["base"] = wer_base
-    print(f"Base model WER: {wer_base:.2f}%")
+    #print("\nEvaluating base model (openai/whisper-base.en)...")
+    #base_model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-base.en").to(device)
+    #base_processor = WhisperProcessor.from_pretrained("openai/whisper-base.en", language="english", task="transcribe")
+    #wer_base = evaluate_common_voice(base_model, base_processor, dataset, num_samples=num_samples)
+    #results["base"] = wer_base
+    #print(f"Base model WER: {wer_base:.2f}%")
     
     # Configurable list of checkpoint directories.
     checkpoint_dirs = [
-        "./whisper-skyrim-en/checkpoint-2000",
+        "./whisper-skyrim-en/checkpoint-1800",
     ]
     
     # Evaluate each checkpoint.

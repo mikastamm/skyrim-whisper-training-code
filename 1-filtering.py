@@ -8,10 +8,16 @@ import torch
 import numpy as np
 import tqdm
 import librosa
+import multiprocessing
 from Pipeline import FILTERED_VOICE_FILE_DIR, PHRASES_FILE, VoiceLines, VoiceLine, print_stage_header, VOICE_FILE_DIR
 from colorama import Fore, Style
+from functools import partial
 
 # =========== Configuration Variables ===========
+# Number of workers for concurrent processing
+AUDIO_DURATION_WORKERS = 8
+SILERO_VAD_WORKERS = 4
+
 # List of forbidden speakers (voice types)
 FORBIDDEN_SPEAKERS = [
     "DLC1SCDragonBoneDragon", 
@@ -198,13 +204,10 @@ def filter_has_no_target_word(voice_lines: VoiceLines, original_total):
     for line in tqdm.tqdm(voice_lines.lines, desc="Filtering for target words"):
         if contains_target_word(line):
             filtered_lines.append(line)
-    
     result = VoiceLines(filtered_lines)
-    
     # Print total removed and percentage of original
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
 
 # ===== Data Distribution Balancing Functions =====
@@ -218,19 +221,15 @@ def balance_speakers(voice_lines: VoiceLines) -> VoiceLines:
     speakers = {}
     for line in voice_lines.lines:
         speakers.setdefault(line.VoiceType, []).append(line)
-        
     # Compute total duration per speaker (in ms)
     speaker_duration = {speaker: sum(line.DurationMs for line in lines if line.DurationMs > 0)
                         for speaker, lines in speakers.items()}
-    
     # Sort speakers by total duration descending
     sorted_speakers = sorted(speaker_duration.items(), key=lambda x: x[1], reverse=True)
-    
     if len(sorted_speakers) >= SPEAKER_N:
         threshold = sorted_speakers[SPEAKER_N - 1][1]
     else:
         threshold = sorted_speakers[-1][1] if sorted_speakers else 0
-        
     remaining_lines = []
     for speaker, lines in speakers.items():
         total_duration = sum(line.DurationMs for line in lines if line.DurationMs > 0)
@@ -309,32 +308,26 @@ def balance_words(voice_lines: VoiceLines) -> VoiceLines:
 # ===== Existing Filtering Functions (unchanged) =====
 def filter_missing_audios(voice_lines, original_total):
     """Remove voice lines with missing audio files."""
-    result = voice_lines.filter("Missing Audio", 
+    result = voice_lines.filter("Missing Audio",
                              lambda line: line.FileName != "_.wav" or os.path.exists(os.path.join(VOICE_FILE_DIR, line.FileName)))  
-    
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
 
 def filter_empty_transcriptions(voice_lines, original_total):
     """Remove voice lines with empty transcriptions."""
-    result = voice_lines.filter("Empty Transcription", 
+    result = voice_lines.filter("Empty Transcription",
                              lambda line: line.Transcription.strip() != "")
-    
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
 
 def filter_forbidden_speakers(voice_lines, original_total):
     """Remove voice lines from forbidden speakers."""
     result = voice_lines.filter("Forbidden Speakers",
                              lambda line: line.VoiceType not in FORBIDDEN_SPEAKERS)
-    
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
 
 def filter_forbidden_substrings(voice_lines, original_total):
@@ -342,12 +335,9 @@ def filter_forbidden_substrings(voice_lines, original_total):
     def has_no_forbidden_substrings(line):
         normalized_text = " " + line.Transcription.lower() + " "
         return all(substr not in normalized_text for substr in FORBIDDEN_SUBSTRINGS)
-    
     result = voice_lines.filter("Forbidden Substrings", has_no_forbidden_substrings)
-    
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
 
 def filter_by_word_count(voice_lines, original_total):
@@ -355,24 +345,18 @@ def filter_by_word_count(voice_lines, original_total):
     def has_valid_word_count(line):
         words = re.findall(r'\b\w+\b', line.Transcription)
         return MIN_WORD_COUNT < len(words) <= MAX_WORD_COUNT
-    
     result = voice_lines.filter("Word Count", has_valid_word_count)
-    
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
 
 def filter_text_in_brackets(voice_lines, original_total):
     """Remove voice lines with text in carets or parentheses."""
     def has_no_bracketed_text(line):
         return not re.search(r'<[^>]*>|\([^)]*\)', line.Transcription)
-    
     result = voice_lines.filter("Bracketed Text", has_no_bracketed_text)
-    
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
 
 def filter_repetitive_words(voice_lines, original_total):
@@ -384,130 +368,106 @@ def filter_repetitive_words(voice_lines, original_total):
             if words[i] == words[i+1] == words[i+2] == words[i+3]:
                 return False
         return True
-    
     result = voice_lines.filter("Repetitive Words", has_no_excessive_repetition)
-    
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
+
+# ===== Updated Audio Duration Measurement with Concurrency =====
+def measure_duration_worker(line):
+    """Worker function to measure audio duration for a single voice line."""
+    audio_path = os.path.join(VOICE_FILE_DIR, line.FileName)
+    if not os.path.exists(audio_path):
+        line.DurationMs = -1
+        return line
+    try:
+        cmd_info = [
+            'ffprobe',
+            '-v', 'error',
+            '-show_entries', 'format=duration',
+            '-of', 'default=noprint_wrappers=1:nokey=1',
+            audio_path
+        ]
+        cmd_result = subprocess.run(cmd_info, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        duration_sec = float(cmd_result.stdout.strip())
+        line.DurationMs = int(duration_sec * 1000)
+        return line
+    except Exception as e:
+        print(f"{Fore.RED}Error measuring duration for {audio_path}: {str(e)}")
+        line.DurationMs = -1
+        return line
 
 def measure_audio_durations(voice_lines):
     """
-    Measure and set the duration of each audio file using ffmpeg.
+    Measure and set the duration of each audio file using ffmpeg with multiprocessing.
     """
-    print(f"{Fore.CYAN}Measuring audio durations...")
+    print(f"{Fore.CYAN}Measuring audio durations using {AUDIO_DURATION_WORKERS} workers...")
     
-    voice_lines_with_duration = VoiceLines()
-    total_lines = len(voice_lines.lines)
+    # Create a process pool
+    with multiprocessing.Pool(processes=AUDIO_DURATION_WORKERS) as pool:
+        # Process voice lines concurrently with a progress bar
+        processed_lines = list(tqdm.tqdm(
+            pool.imap(measure_duration_worker, voice_lines.lines),
+            total=len(voice_lines.lines),
+            desc="Measuring audio durations"
+        ))
     
-    for idx, line in enumerate(tqdm.tqdm(voice_lines.lines)):
-        if idx % 100 == 0 or idx == total_lines - 1:
-            print(f"{Style.DIM}Processing voice line {idx+1}/{total_lines} ({(idx+1)/total_lines:.2%})")
-        audio_path = os.path.join(VOICE_FILE_DIR, line.FileName)
-        
-        if not os.path.exists(audio_path):
-            print(f"{Style.DIM}Warning: Audio file not found: {audio_path}")
-            line.DurationMs = -1
-            voice_lines_with_duration.add(line)
-            continue
-            
-        try:
-            cmd_info = [
-                'ffprobe', 
-                '-v', 'error',
-                '-show_entries', 'format=duration',
-                '-of', 'default=noprint_wrappers=1:nokey=1',
-                audio_path
-            ]
-            
-            result = subprocess.run(cmd_info, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-            duration_sec = float(result.stdout.strip())
-            line.DurationMs = int(duration_sec * 1000)
-            
-            voice_lines_with_duration.add(line)
-            
-        except Exception as e:
-            print(f"{Fore.RED}Error measuring duration for {audio_path}: {str(e)}")
-            line.DurationMs = -1
-            voice_lines_with_duration.add(line)
-    
-    return voice_lines_with_duration
+    return VoiceLines(processed_lines)
 
 def filter_by_audio_duration(voice_lines, original_total):
     """Remove voice lines with audio longer than MAX_AUDIO_DURATION_SEC seconds."""
     result = voice_lines.filter("Audio Duration",
                              lambda line: line.DurationMs > 0 and line.DurationMs <= MAX_AUDIO_DURATION_SEC * 1000)
-    
     removed_total = original_total - len(result)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
-    
     return result
 
-def filter_by_silero_vad(voice_lines, original_total):
-    """
-    Filter out voice lines based on speech detection using Silero VAD.
-    Removes lines with:
-    - No detected speech
-    - Excessive silence at the start, middle, or end
-    """
-    print(f"{Fore.CYAN}Running Silero VAD speech detection...")
-    
+# ===== Updated Silero VAD Filtering with Concurrency =====
+def silero_vad_worker(lines_chunk):
+    """Worker function for Silero VAD filtering."""
+    # Load the model in each worker
     model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
-                                  model='silero_vad',
-                                  force_reload=False)
-    
+                               model='silero_vad',
+                               force_reload=False)
     (get_speech_timestamps, _, _, _, _) = utils
     
-    filtered_lines = VoiceLines()
-    filtered_lines.original_count = voice_lines.original_count
+    filtered_lines = []
+    rejected_info = {
+        'no_speech': 0,
+        'start_silence': 0,
+        'end_silence': 0,
+        'mid_silence': 0
+    }
     
-    rejected_count = 0
-    no_speech_count = 0
-    start_silence_count = 0
-    end_silence_count = 0
-    mid_silence_count = 0
-    
-    total_lines = len(voice_lines.lines)
-    
-    for idx, line in enumerate(tqdm.tqdm(voice_lines.lines)):
-        if idx % 100 == 0 or idx == total_lines - 1:
-            print(f"{Style.DIM}Processing voice line {idx+1}/{total_lines} ({(idx+1)/total_lines:.2%})")
+    for line in lines_chunk:
         audio_path = os.path.join(VOICE_FILE_DIR, line.FileName)
-        
         if not os.path.exists(audio_path):
-            filtered_lines.add(line)
+            filtered_lines.append(line)
             continue
-        
         try:
             audio, sample_rate = librosa.load(audio_path, sr=16000)
             if not isinstance(audio, torch.Tensor):
                 audio = torch.FloatTensor(audio)
-            
             speech_timestamps = get_speech_timestamps(
-                audio, model, threshold=VAD_THRESHOLD01, 
+                audio, model, threshold=VAD_THRESHOLD01,
                 sampling_rate=sample_rate
             )
-            
             if not speech_timestamps:
-                no_speech_count += 1
-                rejected_count += 1
+                rejected_info['no_speech'] += 1
                 continue
-            
+                
             total_duration_sec = len(audio) / sample_rate
             speech_start_sec = speech_timestamps[0]['start'] / sample_rate
             speech_end_sec = speech_timestamps[-1]['end'] / sample_rate
             
             if speech_start_sec > SILENCE_THRESHOLD_START_SEC:
-                start_silence_count += 1
-                rejected_count += 1
+                rejected_info['start_silence'] += 1
                 continue
-            
+                
             if total_duration_sec - speech_end_sec > SILENCE_THRESHOLD_END_SEC:
-                end_silence_count += 1
-                rejected_count += 1
+                rejected_info['end_silence'] += 1
                 continue
-            
+                
             has_long_silence = False
             for i in range(len(speech_timestamps) - 1):
                 current_end = speech_timestamps[i]['end'] / sample_rate
@@ -515,24 +475,64 @@ def filter_by_silero_vad(voice_lines, original_total):
                 if next_start - current_end > SILENCE_THRESHOLD_MID_SEC:
                     has_long_silence = True
                     break
-            
+                    
             if has_long_silence:
-                mid_silence_count += 1
-                rejected_count += 1
+                rejected_info['mid_silence'] += 1
                 continue
-            
-            filtered_lines.add(line)
-            
+                
+            filtered_lines.append(line)
         except Exception as e:
             print(f"{Fore.RED}Error processing {audio_path}: {str(e)}")
-            filtered_lines.add(line)
+            filtered_lines.append(line)
+            
+    return filtered_lines, rejected_info
+
+def filter_by_silero_vad(voice_lines, original_total):
+    """
+    Filter out voice lines based on speech detection using Silero VAD with multiprocessing.
+    """
+    print(f"{Fore.CYAN}Running Silero VAD speech detection using {SILERO_VAD_WORKERS} workers...")
     
+    # Split the work into chunks
+    lines = voice_lines.lines
+    chunk_size = max(1, len(lines) // SILERO_VAD_WORKERS)
+    chunks = [lines[i:i + chunk_size] for i in range(0, len(lines), chunk_size)]
+    
+    # Create a process pool
+    ctx = multiprocessing.get_context('spawn')  # Use spawn for better compatibility with torch
+    with ctx.Pool(processes=SILERO_VAD_WORKERS) as pool:
+        results = list(tqdm.tqdm(
+            pool.imap(silero_vad_worker, chunks),
+            total=len(chunks),
+            desc="Processing with Silero VAD"
+        ))
+    
+    # Combine results
+    all_filtered_lines = []
+    total_rejected_info = {
+        'no_speech': 0,
+        'start_silence': 0,
+        'end_silence': 0,
+        'mid_silence': 0
+    }
+    
+    for filtered_chunk, rejected_info in results:
+        all_filtered_lines.extend(filtered_chunk)
+        for key in total_rejected_info:
+            total_rejected_info[key] += rejected_info[key]
+    
+    # Create new VoiceLines object
+    filtered_lines = VoiceLines(all_filtered_lines)
+    filtered_lines.original_count = voice_lines.original_count
+    
+    # Print rejection statistics
+    total_rejected = sum(total_rejected_info.values())
     print(f"{Fore.YELLOW}Silero VAD filtering results:")
-    print(f"{Style.DIM}  No speech detected: {no_speech_count}")
-    print(f"{Style.DIM}  Excessive silence at start: {start_silence_count}")
-    print(f"{Style.DIM}  Excessive silence at end: {end_silence_count}")
-    print(f"{Style.DIM}  Excessive silence in middle: {mid_silence_count}")
-    print(f"{Fore.YELLOW}Total removed by VAD: {rejected_count}")
+    print(f"{Style.DIM}  No speech detected: {total_rejected_info['no_speech']}")
+    print(f"{Style.DIM}  Excessive silence at start: {total_rejected_info['start_silence']}")
+    print(f"{Style.DIM}  Excessive silence at end: {total_rejected_info['end_silence']}")
+    print(f"{Style.DIM}  Excessive silence in middle: {total_rejected_info['mid_silence']}")
+    print(f"{Fore.YELLOW}Total removed by VAD: {total_rejected}")
     
     removed_total = original_total - len(filtered_lines)
     print(f"{Fore.YELLOW}Total removed so far: {removed_total} ({removed_total / original_total:.2%} of original)")
@@ -542,44 +542,33 @@ def filter_by_silero_vad(voice_lines, original_total):
 def copy_audio_files(voice_lines):
     """Copy audio files from the filtered voice lines to a new directory."""
     print(f"{Fore.CYAN}Copying audio files...")
-    
     output_dir = Path(FILTERED_VOICE_FILE_DIR)
     output_dir.mkdir(exist_ok=True)
-    
     total_lines = len(voice_lines.lines)
-    
     for idx, line in enumerate(tqdm.tqdm(voice_lines.lines)):
         if idx % 100 == 0 or idx == total_lines - 1:
             print(f"{Style.DIM}Copying audio file {idx+1}/{total_lines} ({(idx+1)/total_lines:.2%})")
         audio_path = os.path.join(VOICE_FILE_DIR, line.FileName)
-        
         if not os.path.exists(audio_path):
             print(f"{Style.DIM}Warning: Audio file not found: {audio_path}")
             continue
-        
         output_path = output_dir / line.FileName
         try:
             Path(audio_path).replace(output_path)
         except Exception as e:
             print(f"{Fore.RED}Error copying {audio_path} to {output_path}: {str(e)}")
-    
     print(f"{Fore.GREEN}Copied {total_lines} audio files to {output_dir}")
-    
     return output_dir
 
 # ===== Main Pipeline Execution =====
 def main():
     print_stage_header("Stage 1: Pre-Filtering")
-    
     voice_lines = VoiceLines.load_from_yaml(INPUT_FILE)
     initial_count = len(voice_lines)
-    
     # Randomize the order of voicelines before filtering
     print(f"{Fore.CYAN}Randomizing voicelines order...")
     np.random.shuffle(voice_lines.lines)
-    
     print(f"Starting filtering with {initial_count} voice lines")
-    
     original_total = len(voice_lines)
     
     # voice_lines = filter_empty_transcriptions(voice_lines, original_total)
@@ -603,12 +592,10 @@ def main():
     
     remaining_count = len(voice_lines)
     removed_count = initial_count - remaining_count
-    
     print(f"\n{Fore.YELLOW}===== Filtering Summary =====")
     print(f"{Fore.YELLOW}Initial count: {initial_count}")
     print(f"{Fore.YELLOW}Remaining count: {remaining_count}")
     print(f"{Fore.YELLOW}Total removed: {removed_count} ({removed_count / initial_count:.2%})")
-    
     voice_lines.save_to_yaml(OUTPUT_FILE)
     
     copy_audio_files(voice_lines)

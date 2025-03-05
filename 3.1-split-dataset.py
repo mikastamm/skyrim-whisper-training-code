@@ -3,6 +3,7 @@ import sys
 import os
 import random
 import re
+import yaml
 from collections import defaultdict, Counter
 from typing import List, Dict, Set, Tuple
 from Pipeline import VoiceLines, VoiceLine, print_stage_header, PHRASES_FILE
@@ -10,15 +11,15 @@ from Pipeline import VoiceLines, VoiceLine, print_stage_header, PHRASES_FILE
 # Configuration
 VALIDATION_VOICES = []  # Voices exclusive to validation set
 TEST_VOICES = ["3dnpcvoice"]  # Voices exclusive to test set
-TRAIN_RATIO = 0.7
-VALIDATION_RATIO = 0.2
-TEST_RATIO = 0.1
+TRAIN_RATIO01 = 0.7
+VALIDATION_RATIO01 = 0.2
+TEST_RATIO01 = 0.1
 HIGH_DENSITY_TEST_LINES = 5  # Number of high-density lines to add to test set
 INPUT_FILE = "2-training-data.yaml"
 TRAIN_OUTPUT = "2-train.yaml"
 VALIDATION_OUTPUT = "2-validation.yaml"
 TEST_OUTPUT = "2-test.yaml"
-RANDOM_SEED = 42  # For reproducibility
+RANDOM_SEED = 43  # For reproducibility
 
 # Set random seed for reproducibility
 random.seed(RANDOM_SEED)
@@ -126,12 +127,9 @@ remaining_speakers = [s for s in voice_by_speaker.keys() if s not in assigned_sp
 
 # Calculate how many lines to assign to each split to reach target ratio
 total_remaining_lines = sum(len(voice_by_speaker[s]) for s in remaining_speakers)
-target_train_lines = int(total_remaining_lines * TRAIN_RATIO)
-target_validation_lines = int(total_remaining_lines * VALIDATION_RATIO)
-
-# If test ratio is 0 but we already have test speakers assigned, 
-# we don't need to add any more lines by ratio
-target_test_lines = 0 if TEST_RATIO == 0 and len(test_lines) > 0 else int(total_remaining_lines * TEST_RATIO)
+target_train_lines = int(total_remaining_lines * TRAIN_RATIO01)
+target_validation_lines = int(total_remaining_lines * VALIDATION_RATIO01)
+target_test_lines = 0 if TEST_RATIO01 == 0 and len(test_lines) > 0 else int(total_remaining_lines * TEST_RATIO01)
 
 print(f"Target distribution: Train={target_train_lines}, Validation={target_validation_lines}, Test={target_test_lines}")
 
@@ -149,9 +147,8 @@ for speaker in remaining_speakers:
     speakers_by_plugin[speaker_primary_plugin[speaker]].append(speaker)
 
 # Assign speakers to splits trying to balance plugin distribution and target ratios
-remaining_speakers_set = set(remaining_speakers)  # Use a set for faster removal
+remaining_speakers_set = set(remaining_speakers)
 while remaining_speakers_set:
-    # Calculate current metrics
     current_train_size = len(train_lines)
     current_validation_size = len(validation_lines)
     current_test_size = len(test_lines)
@@ -160,15 +157,13 @@ while remaining_speakers_set:
     validation_plugin_dist = get_plugin_distribution(validation_lines)
     test_plugin_dist = get_plugin_distribution(test_lines)
     
-    # Calculate which split needs more lines
     train_deficit = target_train_lines - current_train_size
     validation_deficit = target_validation_lines - current_validation_size
     test_deficit = target_test_lines - current_test_size
     
-    # Choose which split to add to based on deficit ratio
-    # Skip test if test ratio is 0 and we already have test speakers from the exclusives
-    if TEST_RATIO == 0 and len(TEST_VOICES) > 0:
-        test_deficit = -1  # Ensure test isn't chosen
+    # Skip test if test ratio is 0 and we already have test speakers from exclusives
+    if TEST_RATIO01 == 0 and len(TEST_VOICES) > 0:
+        test_deficit = -1
     
     if train_deficit >= validation_deficit and train_deficit >= test_deficit and train_deficit > 0:
         target_split = "train"
@@ -186,49 +181,34 @@ while remaining_speakers_set:
         current_dist = test_plugin_dist
         target_remaining = target_test_lines - current_test_size
     else:
-        # All targets met or exceeded
         break
     
-    # Find best speaker to add based on plugin distribution
     best_speaker = None
     best_score = -float('inf')
     
     for speaker in remaining_speakers_set:
         speaker_plugin = speaker_primary_plugin[speaker]
-        
-        # Score is higher for plugins that are underrepresented in this split
         plugin_score = 1.0 - current_dist.get(speaker_plugin, 0)
-        
-        # Consider how adding this speaker would affect our target ratio
         speaker_line_count = len(voice_by_speaker[speaker])
-        
-        # Penalize speakers that would push us too far over target
         size_penalty = max(0, speaker_line_count - target_remaining) / (speaker_line_count + 1)
-        
         score = plugin_score - size_penalty
         
         if score > best_score:
             best_score = score
             best_speaker = speaker
     
-    # If we found a speaker to add
     if best_speaker:
-        # Add the speaker to the target split
         target_lines.extend(voice_by_speaker[best_speaker])
         print(f"Added {len(voice_by_speaker[best_speaker])} lines from {best_speaker} "
               f"({speaker_primary_plugin[best_speaker]}) to {target_split} set")
-        
-        # Remove from remaining speakers
         remaining_speakers_set.remove(best_speaker)
         assigned_speakers.add(best_speaker)
     else:
-        # Safety check - should not happen
         print("Error: Could not find a suitable speaker to add")
         break
 
 # Now, collect the high-density voice lines for the test set if we have phrases
-if phrases and TEST_RATIO > 0:
-    # Collect all voice lines that are not yet assigned
+if phrases and TEST_RATIO01 > 0:
     unassigned_lines = []
     for speaker, lines in voice_by_speaker.items():
         if speaker not in assigned_speakers:
@@ -236,36 +216,25 @@ if phrases and TEST_RATIO > 0:
     
     if unassigned_lines:
         print(f"\nSelecting high-density phrase lines for test set...")
-        
-        # Calculate phrase density for each unassigned line
         line_densities = []
         for line in unassigned_lines:
             density = get_phrase_density(line, phrases)
-            if density > 0:  # Only consider lines with at least one phrase
+            if density > 0:
                 line_densities.append((line, density))
-        
-        # Sort by density (highest first)
         line_densities.sort(key=lambda x: x[1], reverse=True)
         
-        # Add top N lines to test set
         high_density_count = min(HIGH_DENSITY_TEST_LINES, len(line_densities))
         if high_density_count > 0:
             high_density_lines = [pair[0] for pair in line_densities[:high_density_count]]
             test_lines.extend(high_density_lines)
-            
-            # Remove these lines from unassigned
             high_density_set = set(high_density_lines)
             unassigned_lines = [line for line in unassigned_lines if line not in high_density_set]
-            
             print(f"Added {high_density_count} high-density phrase lines to test set")
-            
-            # Distribute remaining lines between train and validation
             if unassigned_lines:
                 random.shuffle(unassigned_lines)
-                train_count = int(len(unassigned_lines) * (TRAIN_RATIO / (TRAIN_RATIO + VALIDATION_RATIO)))
+                train_count = int(len(unassigned_lines) * (TRAIN_RATIO01 / (TRAIN_RATIO01 + VALIDATION_RATIO01)))
                 train_lines.extend(unassigned_lines[:train_count])
                 validation_lines.extend(unassigned_lines[train_count:])
-                
                 print(f"Distributed remaining {len(unassigned_lines)} lines: "
                       f"{train_count} to train, {len(unassigned_lines) - train_count} to validation")
         else:
@@ -288,11 +257,9 @@ test_dataset.save_to_yaml(TEST_OUTPUT)
 
 # Print summary
 total = len(train_lines) + len(validation_lines) + len(test_lines)
-
-# Calculate plugin distribution in each split
-train_plugins = Counter([line.Plugin for line in train_lines])
-validation_plugins = Counter([line.Plugin for line in validation_lines])
-test_plugins = Counter([line.Plugin for line in test_lines])
+train_plugins = Counter(line.Plugin for line in train_lines)
+validation_plugins = Counter(line.Plugin for line in validation_lines)
+test_plugins = Counter(line.Plugin for line in test_lines)
 
 print(f"\nDataset split complete:")
 print(f"Train: {len(train_lines)} lines ({len(train_lines)/total:.2%})")
@@ -310,7 +277,6 @@ for plugin in all_plugins:
     print(f"    Validation: {validation_plugins.get(plugin, 0)} ({v_pct:.2%})")
     print(f"    Test: {test_plugins.get(plugin, 0)} ({te_pct:.2%})")
 
-# Print speaker distribution
 train_speakers = set(line.VoiceType for line in train_lines)
 validation_speakers = set(line.VoiceType for line in validation_lines)
 test_speakers = set(line.VoiceType for line in test_lines)
@@ -320,12 +286,11 @@ print(f"  Train: {len(train_speakers)} unique speakers")
 print(f"  Validation: {len(validation_speakers)} unique speakers")
 print(f"  Test: {len(test_speakers)} unique speakers")
 
-# Verify no speakers are in multiple splits
 train_and_val = train_speakers.intersection(validation_speakers)
 train_and_test = train_speakers.intersection(test_speakers)
 val_and_test = validation_speakers.intersection(test_speakers)
 
-if len(train_and_val) == 0 and len(train_and_test) == 0 and len(val_and_test) == 0:
+if not train_and_val and not train_and_test and not val_and_test:
     print("\nSuccess: No speakers appear in multiple splits")
 else:
     print("\nWarning: Some speakers appear in multiple splits:")
@@ -333,7 +298,6 @@ else:
     if train_and_test: print(f"  Train and test: {train_and_test}")
     if val_and_test: print(f"  Validation and test: {val_and_test}")
 
-# Print phrase density information
 if phrases:
     train_density = sum(count_phrases_in_voice_line(line, phrases) for line in train_lines) / max(1, len(train_lines))
     val_density = sum(count_phrases_in_voice_line(line, phrases) for line in validation_lines) / max(1, len(validation_lines))
@@ -344,7 +308,6 @@ if phrases:
     print(f"  Validation: {val_density:.2f}")
     print(f"  Test: {test_density:.2f}")
     
-    # Count voice lines with at least one target phrase
     train_with_phrases = sum(1 for line in train_lines if count_phrases_in_voice_line(line, phrases) > 0)
     val_with_phrases = sum(1 for line in validation_lines if count_phrases_in_voice_line(line, phrases) > 0)
     test_with_phrases = sum(1 for line in test_lines if count_phrases_in_voice_line(line, phrases) > 0)
@@ -353,3 +316,24 @@ if phrases:
     print(f"  Train: {train_with_phrases} ({train_with_phrases/max(1, len(train_lines)):.2%})")
     print(f"  Validation: {val_with_phrases} ({val_with_phrases/max(1, len(validation_lines)):.2%})")
     print(f"  Test: {test_with_phrases} ({test_with_phrases/max(1, len(test_lines)):.2%})")
+
+    # --- New Blocks: Output samples per phrase in YAML for training and test sets ---
+    samples_per_phrase_train = {}
+    for phrase in phrases:
+        count = sum(1 for line in train_lines if voice_line_contains_phrase(line, phrase))
+        samples_per_phrase_train[phrase] = count
+
+    train_yaml_filename = "2-samples-per-word-train.yaml"
+    with open(train_yaml_filename, "w", encoding="utf-8") as outFile:
+        yaml.dump(samples_per_phrase_train, outFile, default_flow_style=False)
+    print(f"\nSaved samples per phrase for training set to file: {train_yaml_filename}")
+
+    samples_per_phrase_test = {}
+    for phrase in phrases:
+        count = sum(1 for line in test_lines if voice_line_contains_phrase(line, phrase))
+        samples_per_phrase_test[phrase] = count
+
+    test_yaml_filename = "2-samples-per-word-test.yaml"
+    with open(test_yaml_filename, "w", encoding="utf-8") as outFile:
+        yaml.dump(samples_per_phrase_test, outFile, default_flow_style=False)
+    print(f"\nSaved samples per phrase for test set to file: {test_yaml_filename}")

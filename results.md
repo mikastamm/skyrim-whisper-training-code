@@ -106,3 +106,122 @@ Baseline Model (whisper-base.en):
 === Evaluation Results on Common Voice English ===
 base: 30.73%
 checkpoint-2000: 38.27%
+
+# 10 % Commonvoice
+=== Aggregated Evaluation Results ===
+Finetuned Model:
+  Average Overall WER: 14.25%
+  Average Phrase Error: 16.18%
+  Untestable Voice Lines: 0
+
+Baseline Model (whisper-base.en):
+  Average Overall WER: 19.20%
+  Average Phrase Error: 56.66%
+  Untestable Voice Lines: 0
+
+=== Evaluation Results on Common Voice English ===
+base: 30.73%
+checkpoint-900: 35.72%
+
+# 15% Commonvoice
+checkpoint-1200: 31.31%
+=== Aggregated Evaluation Results ===
+Finetuned Model:
+  Average Overall WER: 14.60%
+  Average Phrase Error: 15.66%
+  Untestable Voice Lines: 0
+
+Baseline Model (whisper-base.en):
+  Average Overall WER: 19.20%
+  Average Phrase Error: 56.66%
+  Untestable Voice Lines: 0
+  
+    training_args = Seq2SeqTrainingArguments(
+        output_dir=OUTPUT_DIR,
+        per_device_train_batch_size=TRAIN_BATCH_SIZE,
+        gradient_accumulation_steps=4,
+        learning_rate=1e-5,
+        num_train_epochs=8,
+        max_steps=TRAINING_STEPS,
+        warmup_steps=500,
+        lr_scheduler_type="cosine",
+        weight_decay=0.01,
+        gradient_checkpointing=True,
+        fp16=True,
+        evaluation_strategy="steps",
+        per_device_eval_batch_size=EVAL_BATCH_SIZE,
+        predict_with_generate=True,
+        generation_max_length=225,
+        save_steps=SAVE_STEPS,
+        eval_steps=EVAL_STEPS,
+        logging_steps=50,
+        report_to=["tensorboard"],
+        load_best_model_at_end=True,
+        metric_for_best_model="wer",
+        greater_is_better=False,
+        push_to_hub=PUSH_TO_HUB,
+        hub_model_id=REPO_NAME,
+        dataloader_num_workers=4
+    )
+
+# Same as above, traine
+=== Evaluation Results on Common Voice English ===
+checkpoint-2400: 34.63%
+
+Finetuned Model:
+  Average Overall WER: 14.50%
+  Average Phrase Error: 15.38%
+  Untestable Voice Lines: 29
+
+# 3 Frozen decoder layers 
+Checkpoint checkpoint-2400 WER: 32.93%
+
+Finetuned Model:
+  Average Overall WER: 14.01%
+  Average Phrase Error: 14.99%
+  Untestable Voice Lines: 29
+
+Baseline Model (whisper-base.en):
+  Average Overall WER: 19.20%
+  Average Phrase Error: 51.28%
+  Untestable Voice Lines: 29
+
+
+Checkpoint checkpoint-1800 WER: 30.94%
+=== Aggregated Evaluation Results ===
+Finetuned Model:
+  Average Overall WER: 13.77%
+  Average Phrase Error: 15.76%
+  Untestable Voice Lines: 29
+
+Baseline Model (whisper-base.en):
+  Average Overall WER: 19.20%
+  Average Phrase Error: 51.28%
+  Untestable Voice Lines: 29
+
+Checkpoint checkpoint-600 WER: 29.65%
+
+=== Aggregated Evaluation Results ===
+Finetuned Model:
+  Average Overall WER: 16.52%
+  Average Phrase Error: 40.20%
+  Untestable Voice Lines: 29
+
+Baseline Model (whisper-base.en):
+  Average Overall WER: 19.20%
+  Average Phrase Error: 51.28%
+  Untestable Voice Lines: 29
+
+# Same as above, reselected data
+checkpoint-1800: 29.14%
+
+=== Aggregated Evaluation Results ===
+Finetuned Model:
+  Average Overall WER: 13.86%
+  Average Phrase Error: 20.49%
+  Untestable Voice Lines: 18
+
+Baseline Model (whisper-base.en):
+  Average Overall WER: 18.46%
+  Average Phrase Error: 50.82%
+  Untestable Voice Lines: 18

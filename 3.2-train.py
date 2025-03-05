@@ -34,9 +34,9 @@ WHISPER_MODEL = "openai/whisper-base.en"  # Can be changed to other Whisper mode
 LANGUAGE = "english"  # Language for transcription
 TASK = "transcribe"  # Task type
 OUTPUT_DIR = "./whisper-skyrim-en"  # Output directory for model checkpoints
-TRAINING_STEPS = 2000  # Total training steps
-EVAL_STEPS = 100  # Evaluate every N steps
-SAVE_STEPS = 300  # Save checkpoint every N steps
+TRAINING_STEPS = 1800  # Total training steps
+EVAL_STEPS = 600  # Evaluate every N steps
+SAVE_STEPS = 600  # Save checkpoint every N steps
 TRAIN_BATCH_SIZE = 16  # Batch size for training
 EVAL_BATCH_SIZE = 8  # Batch size for evaluation
 PUSH_TO_HUB = True  # Whether to push models to Hugging Face Hub
@@ -50,7 +50,7 @@ TEXT_COLUMN_NAME = "sentence"  # Column name for transcription text
 NUM_PROC = 1  # Number of processes for dataset operations (set to 1 to avoid multiprocessing issues)
 
 # Configurable percentage (between 0 and 1) of common-voice-en examples to add
-commonVoicePct01 = 0.1
+commonVoicePct01 = 0.15
 
 def main():
     print_stage_header("Stage 2: Training Whisper on Skyrim Dataset")
@@ -91,6 +91,21 @@ def main():
     encoder = model.get_encoder() if hasattr(model, "get_encoder") else model.model.encoder
     for param in encoder.parameters():
         param.requires_grad = False
+    
+    decoder = model.get_decoder() if hasattr(model, "get_decoder") else model.model.decoder
+    freeze_decoder_layers=3
+    i=0
+       
+    for layer in decoder.layers:
+        
+        for param in layer.parameters():
+            param.requires_grad = False
+            
+        i+=1
+        if i==freeze_decoder_layers:
+            break
+
+    print(f"Freezed {i} layers of decoder")
 
     # Load the Skyrim data from YAML files and prepare dataset
     def load_skyrim_data(split: str) -> Dataset:
@@ -285,11 +300,11 @@ def main():
         output_dir=OUTPUT_DIR,
         per_device_train_batch_size=TRAIN_BATCH_SIZE,
         gradient_accumulation_steps=4,
-        learning_rate=1e-5,
+        learning_rate=3e-6,
         num_train_epochs=8,
         max_steps=TRAINING_STEPS,
-        warmup_steps=500,
-        lr_scheduler_type="cosine",
+        warmup_steps=1000,
+        lr_scheduler_type="linear",
         weight_decay=0.01,
         gradient_checkpointing=True,
         fp16=True,

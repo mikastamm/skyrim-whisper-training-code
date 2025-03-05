@@ -2,18 +2,16 @@
 """
 4.4-microphone-testing.py
 
-This script continuously listens to the microphone input and uses Silero VAD to segment incoming audio when 
-silence longer than 1.5 seconds is detected. Once an utterance is captured, it transcribes the audio using both 
-the base Whisper model and one or more finetuned models (specified via a configuration variable at the top). 
-It then compares the transcriptions by detecting target phrases (loaded from PHRASES_FILE), highlights these phrases 
-in color, and if a phrase is detected by one model but not by another, it marks that as an error.
+This script waits for you to press ENTER to start recording audio from the microphone,
+and then again to stop recording. Once an utterance is captured, it transcribes the audio 
+using both the base Whisper model and one or more finetuned models (specified via a configuration variable at the top).
+It then compares the transcriptions by detecting target phrases (loaded from PHRASES_FILE), 
+highlights these phrases in color, and if a phrase is detected by one model but not by another, it marks that as an error.
 """
 
 import os
 import re
 import queue
-import sys
-import time
 import numpy as np
 import sounddevice as sd
 import torch
@@ -26,23 +24,13 @@ from Pipeline import PHRASES_FILE  # Assumes PHRASES_FILE is defined in your Pip
 colorama.init()
 
 # ==================== Configuration ====================
-# List of checkpoint directories for finetuned models.
-# You can add as many as you wish.
 CHECKPOINT_DIRS = [
     "./whisper-skyrim-en/checkpoint-1200",
     "./whisper-skyrim-en/checkpoint-600"
 ]
-# =======================================================
-
-# Load Silero VAD from torch.hub
-# (For details, see https://github.com/snakers4/silero-vad)
-vad_model, utils = torch.hub.load(repo_or_dir="snakers4/silero-vad", model="silero_vad", source="github")
-(get_speech_ts, save_audio, read_audio, VADIterator) = utils
-
 SAMPLE_RATE = 16000  # 16 kHz
 CHANNELS = 1
-BLOCK_DURATION = 0.5   # seconds per block
-SILENCE_DURATION = 1.5  # seconds of silence to mark end-of-utterance
+# =======================================================
 
 # Load target phrases.
 with open(PHRASES_FILE, "r", encoding="utf-8") as f:
@@ -51,8 +39,7 @@ with open(PHRASES_FILE, "r", encoding="utf-8") as f:
 def normalize_text(text: str) -> str:
     """Lowercase, replace hyphens with spaces, and remove non-alphanumeric characters."""
     text = text.lower().replace('-', ' ')
-    text = re.sub(r'[^0-9a-z\s]', '', text)
-    return text
+    return re.sub(r'[^0-9a-z\s]', '', text)
 
 def highlight_phrases(text: str, phrases: list, color="yellow"):
     """
@@ -77,32 +64,38 @@ def detect_phrases(text: str, phrases: list) -> set:
 
 def record_utterance():
     """
-    Records audio from the microphone until SILENCE_DURATION seconds of silence is detected.
+    Records audio from the microphone when the user presses ENTER to start,
+    and stops recording when the user presses ENTER again.
     Returns a dict with keys "array" (numpy array of samples) and "sampling_rate".
     """
+    input(colored("Press ENTER to start recording...", "green", attrs=["bold"]))
+    print(colored("Recording... Press ENTER to stop recording.", "green", attrs=["bold"]))
+    
     q = queue.Queue()
     utterance_blocks = []
 
     def callback(indata, frames, time_info, status):
         q.put(indata.copy())
 
-    print(colored("Start speaking...", "green", attrs=["bold"]))
-    silence_time = 0.0
-    with sd.InputStream(samplerate=SAMPLE_RATE, channels=CHANNELS, dtype="float32",
-                        blocksize=int(SAMPLE_RATE * BLOCK_DURATION), callback=callback):
-        while True:
-            block = q.get()
-            utterance_blocks.append(block.flatten())
-            audio_block = torch.from_numpy(block.flatten())
-            speech_segments = get_speech_ts(audio_block, SAMPLE_RATE, threshold=0.5)
-            if len(speech_segments) == 0:
-                silence_time += BLOCK_DURATION
-            else:
-                silence_time = 0.0
-            if silence_time >= SILENCE_DURATION:
-                break
-    print(colored("Utterance ended. Processing...", "cyan"))
-    utterance_np = np.concatenate(utterance_blocks, axis=0)
+    stream = sd.InputStream(samplerate=SAMPLE_RATE, channels=CHANNELS, dtype="float32", callback=callback)
+    stream.start()
+
+    # Wait for user to press ENTER to stop recording.
+    input()
+
+    stream.stop()
+    stream.close()
+
+    # Drain the audio queue.
+    while not q.empty():
+        block = q.get()
+        utterance_blocks.append(block.flatten())
+    
+    if utterance_blocks:
+        utterance_np = np.concatenate(utterance_blocks, axis=0)
+    else:
+        utterance_np = np.array([])
+
     return {"array": utterance_np, "sampling_rate": SAMPLE_RATE}
 
 def transcribe_audio(model, processor, audio):
@@ -146,33 +139,30 @@ def main():
     base_model, base_processor, finetuned_models = load_models()
     
     while True:
-        print("\n" + colored("=== Ready to record a new utterance ===", "magenta", attrs=["bold"]))
+        print("\n" + colored("=== Ready for a new recording ===", "magenta", attrs=["bold"]))
         print("Press Ctrl+C to exit.")
         audio = record_utterance()
         
-        # Transcribe with base model.
         print(colored("Transcribing with base model...", "blue"))
         base_transcription = transcribe_audio(base_model, base_processor, audio)
         
-        # Transcribe with each finetuned model.
         finetuned_results = {}
         for model_name, model, processor in finetuned_models:
             print(colored(f"Transcribing with finetuned model {model_name}...", "blue"))
             transcription = transcribe_audio(model, processor, audio)
             finetuned_results[model_name] = transcription
         
-        # Detect phrases.
         base_detected = detect_phrases(base_transcription, TARGET_PHRASES)
         finetuned_detected = {}
         for model_name, transcription in finetuned_results.items():
             finetuned_detected[model_name] = detect_phrases(transcription, TARGET_PHRASES)
         
-        # Build union of detected phrases across all models.
+        # Build union of detected phrases.
         union_phrases = set(base_detected)
         for detected in finetuned_detected.values():
             union_phrases = union_phrases.union(detected)
         
-        # Compute errors: For each model, phrases missing relative to the union.
+        # Compute errors: phrases missing relative to the union.
         errors = {}
         errors["base"] = union_phrases - base_detected
         for model_name, detected in finetuned_detected.items():
@@ -183,7 +173,7 @@ def main():
         finetuned_highlighted = {name: highlight_phrases(trans, TARGET_PHRASES, color="yellow") 
                                  for name, trans in finetuned_results.items()}
         
-        # Structured output.
+        # Output results.
         print("\n" + colored("=== Transcription Results ===", "green", attrs=["bold"]))
         print(colored("Base Model:", "cyan", attrs=["bold"]))
         print(base_highlighted)
@@ -191,14 +181,12 @@ def main():
             print(colored(f"Finetuned Model ({model_name}):", "cyan", attrs=["bold"]))
             print(text)
         
-        # Print detected phrases.
         print("\n" + colored("Detected Phrases:", "green", attrs=["bold"]))
         print("Union of detected phrases:", list(union_phrases))
         print("Base model detected:", list(base_detected))
         for model_name, detected in finetuned_detected.items():
             print(f"Finetuned model {model_name} detected:", list(detected))
         
-        # Print errors.
         for model_key, missing in errors.items():
             if missing:
                 print(colored(f"ERROR: {model_key} is missing phrases:", "red"), list(missing))

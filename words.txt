@@ -10,7 +10,7 @@ Adonato Leotelli
 Adrianne Avenicci
 Adril Arano
 Aduri Sarethi
-Aela the Huntress
+Aela Huntress
 Aerin
 Agmaer
 Ahjisi
@@ -34,8 +34,7 @@ Alethius
 Alexia Vici
 Alfarinn
 Alftand
-Alik’r Prisoner
-Alik’r Warrior
+Alik’r
 Altar of Thrond
 Alva
 Alvor
@@ -43,17 +42,17 @@ Amaund Motierre
 Ambarys Rendar
 Amren
 Ancano
-Ancient Dwarven Storeroom
-Ancient Nord Burial Ground
+Dwarven Storeroom
+Nord Burial
 Ancient's Ascent
 Andurs
-Anga's Mill
+Anga
 Angarvunde
 Angeline Morrard
 Angi
 Angr
 Angrenor Once-Honored
-Angr’s Ghost
+Angr
 Anise
 Annekke Crag-Jumper
 Anoriath
@@ -66,7 +65,7 @@ Aranea
 Aranea Ienith
 Arcadia
 Argi Farseer
-Argis the Bulwark
+Argis Bulwark
 Argonian
 Arilwaen
 Froa
@@ -80,11 +79,11 @@ Arniel Gane
 Arnskar Ember-Master
 Arondil
 Arrald Frozen-Heart
-Arvel the Swift
-Arvel’s Journal
+Arvel
+Arvel
 Asgeir Snow-Shod
 Aslfur
-Aslög the Great
+Aslög
 Asta
 Astrid
 Atar
@@ -95,7 +94,7 @@ Atmora
 Atronach
 Atub
 Augur of Dunlain
-Autumnwatch Tower
+Autumnwatch
 Avanchnzel
 Aventus Aretino
 Avrusa Sarethi
@@ -106,23 +105,21 @@ Babette
 Balagog gro-Nolob
 Baldor Iron-Shaper
 Balgruuf
-Balgruuf the Greater
 Balimund
 Bandit
-Bandit Chief
 Bandit Marauder
 Bandit Plunderer
 Bandit Thug
 Banning
 Barbas
-Bards College
+Bards
 Barknar
 Bashnag
 Bassianus Axius
-Battle-Born Farm
+Battle-Born
 Battle-Borns
 Batum gra-Bar
-Beautiful Barbarian
+Barbarian
 Beitild
 Belchimac
 Belethor
@@ -138,23 +135,19 @@ Betrid Silver-Blood
 Bette
 Frodmar
 Renni
-Big Laborer
+Laborer
 Birna
 Bjartur
 Bjorlam
-Black-Briar Lodge
+Black-Briar
 Black-Briar Mercenary
 Black-Briars
 Blackreach
-Blackreach Tower
-Blackreach War Quarters
-Blades
-Blasphemous Priest
-Bleak Falls Barrow
-Bleakcoast Cave
-Blind Cliff Cave
+Blasphemous
+Bleak Barrow
+Bleakcoast
 Bloated Man's Grotto
-Blood Horkers
+Horkers
 Bloodlet Throne
 Bloodskal Barrow
 Bodan
@@ -164,43 +157,74 @@ Bolar
 Bolgeir Bearclaw
 Bolli
 Bolund
-Bonechill Passage
+Bonechill
 Bor
-Borgakh the Steel Heart
+Borgakh
 Borgny
-Borkul the Beast
+Borkul
 Borri
 Borvir
 Bothela
 Boti
 Bottar
-Boulderfall Cave
+Boulderfall
 Bouncer
-Bounty Collector
+Bounty
 Braig
 Braith
 Brand-Shei
 Brandish
-Brandy-Mug Farm
+Brandy-Mug
 Breezehome
+Braidwood
+Candlehearth
+Gnisis 
+Dead Man's Drink
+Four Shields
+Moorside
+Windpeak
+Old Hroldan
+Retching Netch
+Frostfruit
+Sleeping Giant
+Frozen Hearth
 Brelas
 Brelyna Maryon
 Brenuin
 Breton
 Breya
+White Phial
+Pawned Prawn
+Elgrim's Elixirs
+Fort Dawnguard
+Sadri's Used Wares
+Angeline's Aromatics
+Solitude Blacksmith
+Radiant Raiment
+Marketplace Stall
+Fletcher
+Castle Dour
+The Winking Skeever
+Marketplace Stall
+Bits and Pieces
+Blue Palace
 Briehl
 Brill
 Brina Merilis
-Bristleback Cave
+Bristleback
 Britte
-Broken Fang Cave
-Broken Helm Hollow
-Broken Limb Camp
-Broken Oar Grotto
-Broken Tower Redoubt
+Candlecrush
+Cragswallow
+Frostroot
+Snapleg
+Uttering Hill
+Fang
+Helm
+Limb
+Oar Grotto
+Redoubt
 Brond
-Bronze Water Cave
-Brother Verulus
+Verulus
 Brunwulf Free-Winter
 Bryling
 Brynjolf
@@ -216,59 +240,52 @@ Calcelmo
 Calixto Corrium
 Caller
 Camilla Valerius
-Candlehearth Hall
-Captain Avidius
-Captain Hargar
-Captain Lonely-Gale
-Captain Metilius
-Captain Valmir
-Captain Veleth
-Captain Wayfinder
+Candlehearth
+Avidius
+Hargar
+Lonely-Gale
+Metilius
+Valmir
+Veleth
+Wayfinder
 Carah
 Carlotta Valentia
-Carriage Driver
-Cart Driver
-Castle Dour
-Castle Karstaag Ruins
-Castle Volkihar
-Castor the Puzzlemaker’s Corpse
+Carriage
+Dour
+Karstaag Ruins
+Volkihar
+Castor Puzzlemaker’s Corpse
 Cedran
 Celann
 Challenger
-Champion of Boethiah
+Boethiah
 Chaurus
 Chaurus Hunters
 Chaurus Reaper
-Chief Burguk
-Chief Larak
-Chief Mauhulakh
-Chief Yamarz
+Burguk
+Larak
+Mauhulakh
+Yamarz
 Christer
 Cicero
-Cindha Mine
+Cindha
 Cindiri Arano
 Clavicus Vile
-Clinton Lylvieve
+Lylvieve
 Coldhearted Gravedigger
 Colette Marence
-College Guard
-Commander Caius
-Commander Maro
-Companion Ghost
+Maro
 Companions
-Confidence
-Constance Michel
+Constance
 Corpulus Vinius
-Corrupt Agent
+Corrupt
 Cortus
 Cosnach
-Courier
-Cow Hand
-Cracked Tusk Keep
-Cragwallow Slope
+Cracked Tusk
+Cragwallow
 Crefidia
 Crescius Caerellius
-Crystaldrift Cave
+Crystaldrift
 Curalmil
 Curwe
 Cynric Endell
@@ -278,30 +295,30 @@ Dagur
 Daighre
 Dalan Merchad
 Danica Pure-Spring
-Dark Brotherhood
-Dark Brotherhood Assassin
-Dark Brotherhood Initiate
-Dark Seducers
-Darkfall Cave
-Darklight Tower
-Darkwater Crossing
+Brotherhood
+Brotherhood Assassin
+Brotherhood Initiate
+Seducers
+Darkfall
+Darklight
+Darkwater
 Dawnbreaker
 Mace of Molag Bal
 Mehrunes Razor
 Oghma Infinium
 Volendrung
+Olenveld
 Wabbajack
 Dawnguard
 Dawnstar
 Dawnstar Sanctuary
 Daynas Valen
-Dead Crone Rock
-Dead Man's Respite
-Dead Scholar
-Deadwood Lumber Mill
+Rigmor
+Crone
+Man's Respite
+Deadwood Lumber
 Deeja
 Deekus
-Deep Folk Crossing
 Deep-In-His-Cups
 Deepwood Redoubt
 Deepwood Vale
@@ -313,7 +330,7 @@ Dengeir
 Dengeir of Stuhn
 Derkeethus
 Dervenin
-Desperate Gambler
+Gambler
 Devran
 Dexion Evicus
 Dimhollow Crypt
@@ -324,7 +341,6 @@ Domna Magia
 Donnel
 Dorian
 Dorthe
-Dragon Bridge
 Dragonborn
 Dragonreach Dungeon
 Dragonsreach
@@ -336,10 +352,9 @@ Draugr
 Draugr Scourge
 Draugr Wight
 Dravin Llanith
-Dravynea the Stoneweaver
-Drelas Farm
+Dravynea Stoneweaver
+Drelas
 Dremora
-Dremora Lord
 Drennen
 Drevis Neloren
 Drifa
@@ -354,37 +369,35 @@ Durai
 Durak
 Duraz
 Durnehviir
-Dushnikh Mine
+Dushnikh
 Dushnikh Yal
 Duskglow Crevice
 Dustman's Cairn
-Dwemer Museum
-Ebony Warrior
+Dwemer
 Eddvia
 Edorfin
-Edorfins Journal
+Edorfins
 Eduard Hvitulfr
 Edwayne
 Efram
+Bannered Mare
 Einarth
 Eisa Blackthorn
 Eldar
 Eldri
 Elenwen
 Elethor
-Elisif the Fair
-Elisifs Husband
+Elisif
+Elisifs
 Elisifs Widow
 Eltonbrand
 Eltrys
-Eltrys’s Note
+Eltrys
 Elvali Veren
-Embershard Mine
+Embershard
 Endon
 Endrast
 Endune
-Engineering Report
-Engineers Journal
 Engraved Falmor
 Ennbjorn
 Ennis
@@ -394,7 +407,7 @@ Eorlund Gray-Mane
 Erandur
 Erdi
 Ergnir
-Erik the Slayer
+Slayer
 Erikur
 Erith
 Erlendr
@@ -405,21 +418,18 @@ Esofish
 Estormo
 Etienne Rarnis
 Eusmil
-Even Better
-Evette San
+Evette
 Eydis
 Faendal
 Fafnir
-Faithful Gear
+Faithful
 Falas Selvayn
 Faleen
 Falion
 Falk Firebeard
 Falkreath
 Falkreath Graveyard
-Falkreath Hold
-Falkreath Jail
-Fallowstone Cave
+Fallowstone
 Falmer Caves
 Falmer Gloomlurker
 Falmer Shadowmaster
@@ -427,12 +437,11 @@ Falmer Skulker
 Faralda
 Farengar Secret-Fire
 Farkas
-Farmer
 Fasendil
 Fastred
-Faulkreath Guard
-Felldir the Old
-Fellglow Keep
+Faulkreath
+Felldir
+Fellglow
 Fennorian
 Fenrald
 Marla
@@ -451,44 +460,40 @@ Florentus
 Folgunthur
 Forebears' Holdout
 Forelhost
-Forsaken Cave
+Forsaken
 Forsworn Briarheart
 Forsworn Redoubt
-Fort Amol
-Fort Blackwatch
-Fort Dawnguard
-Fort Greymoor
-Fort Hraggstad
-Fort Neugrad
-Fort Sungard
-Fort Winterhold
-Four Shields Tavern
+Amol
+Blackwatch
+Greymoor
+Hraggstad
+Neugrad
+Sungard
+Winterhold
+Shields Tavern
 Frabbi
 Fralia Gray-Mane
 Frea
 Frorkmar Banner-Torn
 Frossel
-Frost Giants
-Frost Troll
+Troll
 Frostflow Lighthouse
 Frostmere Crypt
 Frothar
 Frygg
-Spirit Wolf
 Hrongar
 Hjolm
 Falatild
 Larsdon
 Karras
-Fullhelm Wolf
+Fullhelm
 Fura Bloodmouth
 Gabania
-Guard
 Sellswords
 Gabriella
 Gaius Maro
 Galathil
-Gallows Rock
+Gallows
 Galmar Stone-Fist
 Gancielo
 Lorne
@@ -496,40 +501,37 @@ Soren
 Deneris
 Varyan
 Ghosts
-Brother Renmar
+Renmar
 Deirdre
 Hrokkar
 Parellius
 Wench
 Garan Marethi
 Garvey
-Geirmund's Hall
-Geirrod's Fall
+Geirmund
+Geirrod
 Geldis Sadri
 Gelebros
-General Tullius
+Tullius
 Gerdur
 Ghorbash
-Ghorbash the Iron Hand
-Ghost of Lucien Lachance
-Ghost of Olaf One-Eye
-Ghost of Svaknir
+Lucien Lachance
+Olaf One-Eye
+Svaknir
 Gianna
-Giant Frostbite Spider
-Giant's Grove
-Giants
+Frostbite
+Giant
 Girduin
 Gisli
 Gissur
 Gjalund Salt-Sage
 Glenmoril
-Glacial Cave
+Glacial
 Glenmoril Coven
-Gloombound Mine
+Gloombound
 Gloomreach
 Glover Mallory
-Golden Saints
-Goldenglow Estate
+Goldenglow
 Golldir
 Gonnar Oath-Giver
 Gorm
@@ -537,41 +539,39 @@ Gormlaith Golden-Hilt
 Gormleif
 Grotta
 Ulrund
-Gourmet
 Gray-Manes
-Graywinter Watch
-GregorHF
+Graywinter
+Gregor
 Grelka
-Griefstricken Chef
+Griefstricken
 Gularzob
 Gulum-Ei
 Gunmar
-Haafingar Stormcloak Camp
+Haafingar Stormcloak
 Hadvar
 Haelga
-Haemar's Shame
+Haemar
 Hafnar Ice-Fist
 Hagraven
 Haknir Death-Brand
 Haknir's Shoal
 Hakon One-Eye
 Haldyn
-Half-Moon Mill
+Half-Moon
 Halldir
 Halldir's Cairn
 Halls of Valor
-Halted Stream Camp
+Halted
 Harkon
 Harmugstahl
 Helgen
-Helgen Keep
 Helgi
-Heljarchen Hall
+Heljarchen
 Hemming Black-Briar
 Hemskir
 Hermaeus Mora
 Hern
-Hero of Sovngarde
+Sovngarde
 Herran
 Utei
 Peracles
@@ -583,45 +583,42 @@ Thorngar
 Hert
 Hestla
 Hevnoraak
-High Gate Ruins
-High Hrothgar
-High King Torygg
+Ruins
+Hrothgar
+Torygg
 Hiram
-Knights of the Eight
+of
 Hircine
-Hjaalmarch Marsh
+Hjaalmarch
 Hjerim
 Hjornskar Head-Smasher
 Hoarfrost
-Hob's Fall Cave
+Hob
 Hod
 Honeyside
 Honingbrew Meadery
 Horik Halfhand
-Horker Island
-Horker Rock
-Hrodulf's House
+Horker
+Hrodulf
 Hroggar
 Hunroor
-Hunter's Rest
-Ice Wraiths
+Hunter
+Wraiths
 Idgrod Ravencrone
-Idgrod the Younger
+Idgrod
 Idolaf Battle-Born
 Igmund
-Ignar the Lucky
+Ignar
 Valencia
-Horker
 Skeever
-Wolf
-Moth Priest
+Moth
 Mannequin
 Ildari Sarothril
 Illia
-Imperial Legion
+Legion
 Inari
 Indaryn
-Indolent Farmer
+Indolent
 Ingjard
 Ingun Black-Briar
 Iona
@@ -640,14 +637,14 @@ Jenassa
 Jod
 Jofthor
 Jora
-Jordis the Sword-Maiden
+Jordis Sword-Maiden
 Joric
 Jorleif
 Jorrvaskr
 Joselyn
 Jurgen Windcaller
 Jzargo
-Kai Wet-Pommel
+Wet-Pommel
 Kaie
 Karliah
 Karstaag
@@ -659,10 +656,10 @@ Khajiit
 Kharjo
 Kilkreath Ruins
 Kleppr
-Knifepoint Ridge
+Knifepoint
 Kodlak Whitemane
 Kolbjorn Barrow
-Kolskeggr Mine
+Kolskeggr
 Konahrik
 Korir
 Korvanjund
@@ -672,20 +669,19 @@ Krosis
 Krosulhah
 Kruziikrel
 Kust
-Kvenel the Tongue
+Kvenel
 Kynesgrove
 Labyrinthian
 Laelette
 Laila Law-Giver
-Lakeview Manor
+Lakeview
 Lami
-Larak
 Largashbur
 Lattimore
 Merissa
 Julius
-Synod Priest
-Left Hand Mine
+Cidhna
+Synod
 Legate Adventus Caesennius
 Legate Constantius Tituleius
 Legate Emmanuel Admand
@@ -696,23 +692,20 @@ Legate Rikke
 Legate Sevan Telendas
 Legate Skulnar
 Legate Taurinus Duilis
-Liar's Retreat
+Liar
 Lleril Morvayn
 Lob
 Lod
 Lokil
-Lost Echo Cave
-Lost Prospect Mine
-Lost Tongue Overlook
-Lost Valley Redoubt
-Louis Letrush
+Overlook
+Letrush
 Lucan Valerius
 Lurbuk
 Lurgok
 Lurkers
 Lydia
 Lygrleid
-M'aiq the Liar
+M'aiq Liar
 Madanach
 Madesi
 Malacath
@@ -725,7 +718,6 @@ Maramal
 Marcurio
 Marigoth
 Markarth
-Markarth Mine
 Markarth Warrens
 Maro Rufus
 Maul
@@ -734,32 +726,32 @@ Mehrunes Dagon
 Mephala
 Mercer Frey
 Meridia
+moot
 Minette Vinius
 Miraak
 Mirabelle Ervine
 Mirri Severin
-Mistveil Keep
+Mistveil
 Mistwatch
-Mistwatch Tower
-Mixwater Mill
+Mixwater
+Dagoth Ur
 Mjoll
-Mjoll the Lioness
+Mjoll Lioness
 Modhna
 Mogrul
 Molag Bal
 Mor Khazgur
 Morag Tong
 Morthal
-Morthal Guard
 Morven
 Morven Stroud
-Moss Mother Cavern
-Mount Anthor
+Cavern
+Anthor
 Movarth
 Movarth's Lair
 Muiri
 Murbul
-Mythic Dawn
+Mythic
 Mzinchaleft Ruins
 Naaslaarum
 Nahkriin
@@ -785,21 +777,21 @@ Nelkir
 Neloth
 Nenya
 Nerien
-Nervous Patron
+Patron
 Netch
 Nettlebane
-Nightingale Hall
+Nightingale
 Nikulas
 Niranye
 Nirn
 Njada Stonearm
 Nocturnal
-Northwatch Keep
-Northwind Summit
+Northwatch
+Northwind
 Noster Eagle-Eye
 Nystrom
 Oblivion
-Octieve San
+Octieve
 Odahviing
 Offryn
 Helsig
@@ -807,18 +799,17 @@ Felena
 Vinnius
 Ogol
 Olaf One-Eye
-Olava the Feeble
-Old Attius Farm
-Old Hroldan
+Olava Feeble
+Attius
+Hroldan
 Olfrid Battle-Born
 Omluag
 Onmund
 Orthjolf
 Oslaf
-Otar the Mad
+Otar
 Paarthurnax
 Pactur
-Pale Lady
 Paratus Decimius
 Pavo Attius
 Penitus Oculatus
@@ -830,36 +821,33 @@ Pinepeak Caverns
 Pinewatch
 Primei
 Ester
-Proudspire Manor
+Proudspire
 Proventus Avenicci
 Puck
 Elenthil
 Vaughn
-Purewater Run
+Purewater
 Pyandonea
 Quaranir
-Quicksilver Mine
+Quicksilver
 Raerek
 Rahgot
 Raldbthar
-Raldbthar Deep Market
 Ralis Sedarys
 Ralof
-Rannveig's Fast
-Raven Rock
-Ravenscar Hollow
-RayyaHF
+Rannveig
+Raven
+Ravenscar
+Rayya
 Razelan
-Reachcliff Cave
-Reachwater Rock
+Reachcliff
+Reachwater
 Reaper
 Rebel's Cairn
 Reburrus Quintilius
-Red Eagle
-Red Eagle Redoubt
 Redguard
-Redoran's Retreat
-Redwater Den
+Redoran
+Redwater
 Relonikiv
 Restless Draugr
 Revis Malor
@@ -867,9 +855,8 @@ Rexus
 Ri'saad
 Ria
 Riften
-Riften Jail
 Riften Sewers
-Riftweald Manor
+Riftweald
 Rigel Strong-Arm
 Rimerock Burrow
 Riverwood
@@ -886,17 +873,16 @@ Ruunvald
 Saarthal
 Sabine Nytte
 Sabjorn
-Sabre Cat
+Sabre
 Sacellum of Boethiah
 Sadia
 Salonia Carvain
-Sam Guevenne
+Guevenne
 Sanguine
 Sarthis Idren
 Iddra
 Savos Aren
 Scheming Servant
-Seeker
 Senna
 Septim
 Septims
@@ -904,15 +890,15 @@ Septimus Signus
 Serana
 Seren
 Sergius Turrianus
-Severin Manor
+Severin
 Shadowgreen Cavern
 Shadr
 Shalidor's Maze
 Sharamph
 Shearpoint
 Sheogorath
-Shimmermist Cave
-Shor's Stone
+Shimmermist
+Shor
 Shriekwind Bastion
 Shrine of Azura
 Shroud Hearth Barrow
@@ -920,7 +906,7 @@ Sibbi Black-Briar
 Siddgeir
 Sigar
 Signus
-Henna and Frenna
+Henna Frenna
 Gren
 Helcyon
 Uldvar
@@ -931,54 +917,52 @@ Cyrus
 Eldritch
 Sevrilla
 Sigrid
+Cyrodiil
 Silda
-Silda the Unseen
-Silent City Catacombs
-Silent Moons Camp
+Silda Unseen
+Catacombs
+Moons
 Silus Vesuius
-Silver Hand
 Silverdrift Lair
 Sinderion
 Sinding
 Sinmir
 Skald
-Skald the Elder
 Skjor
 Skuldafn
-Skull Cave
-Sky Haven Temple
+Skull
 Skyforge
 Kjar
-Snapleg Cave
-Snow Veil Sanctum
-Snowy Sabre Cats
+Snapleg
+Veil Sanctum
+Snowy Sabre
 Sogrlaf
 Solitude
 Solitude Docks
-Solitude Market
 Solitude Sawmill
 Soljund's Sinkhole
 Sond
 Sorine Jurard
-Sorli the Builder
-Soul Cairn Keepers
-Soulspring Cave
-South Skybound Watch
+Sorli
+soul trap
+Cairn Keepers
+Soulspring
+Skybound
 Southfringe Sanctum
 Sovngarde
 Spriggan
 Spriggan Matron
 Statue of Meridia
-Steamscorch Mine
+Steamscorch
 Stendarr
 Stenvar
-Stonehills Mine
-Stony Creek Cave
+Stonehills
+Stony
 Stormcloaks
 Stormfang
 Storn Crag-Strider
 Sunderstone Gorge
-Susanna the Wicked
+Susanna
 Svaknir
 Svana Far-Shield
 Sven
@@ -986,7 +970,7 @@ Sybille Stentor
 Takes-In-Light
 Talen-Jei
 Talos
-Talsgar the Wanderer
+Talsgar Wanderer
 Talvas Fathryon
 Tamriel
 Tandil
@@ -994,41 +978,45 @@ Taron Dreth
 Teeba-Ei
 Tekla
 Teldryn Sero
-Temple of Dibella
-Temple of Kynareth
-Temple of Mara
-Temple of the Divines
+Dibella
+Kynareth
+Mara
+Divines
 Thaena
 Thalmor Hideout
 Thane Bryling
+Skyrim
+Morrowind
+Cyrodiil
+Hammerfell
+High Rock
+Summerset Isles
+Valenwood
+Elsweyr
+Black Marsh
+Argonia
+Orsinium
 Tharstan
-The Apprentice Stone
-The Atronach Stone
-The Bannered Mare
-The Bee and Barb
-The Chill
-The College of Winterhold
-The Fair Lady
+Apprentice
+Bee and Barb
+Chill
+Winterhold
 J’Sharr
 Valenor
 Ignatius
-The Frozen Hearth
-The Katariah
-The Lord Stone
-The Mage Stone
-The Midden
-The Nightgate Inn
-The Ratway
-The Ritual Stone
-The Shadow Stone
-The Shrine of Talos
-The Steed Stone
-The Throat of the World
-The Warrior Stone
-The Winking Skeever
-The Wreck of the Winter War
+Hearth
+Katariah
+Mage
+Midden
+Nightgate
+Ratway
+Ritual
+Shrine of Talos
+Steed
+Winking Skeever
+Wreck
 Theron
-Thieves Guild
+Thieves
 Thonjolf
 Thonnir
 Thonvor Silver-Blood
@@ -1036,32 +1024,32 @@ Thorygg Sun-Killer
 Thras
 Tilisu Severin
 Tolfdir
-Tolvald's Cave
+Tolvald
 Tonilia
 Torsten Cruel-Sea
 Torvar
-Torygg
 Tova Shatter-Shield
-Tower of Mzark
-Tranquil Waters Camp
-Treva's Watch
+Mzark
+Tranquil
+Treva
 Tsun
 Tundra Homestead
+Homestead
 Ugor
-Ulfgar the Unending
+Ulfgar Unending
 Ulfric Stormcloak
-Understone Keep
+Understone
 Unemployed Laborer
 Unmid Snow-Shod
 Urag gro-Shub
 Urzoga gra-Shugurz
 Ustengrav
-Uthgerd the Unbroken
+Uthgerd Unbroken
 Vaermina Devotee
-Vahlok the Jailor
+Vahlok Jailor
 Vald
 Valdar
-ValdimarHF
+Valdimar
 Valerica
 Valthume
 Valthume Catacombs
@@ -1070,18 +1058,17 @@ Vardath
 Ralothi
 Fassius
 Amsien
-The Captain
 Prompt-But-Bashful
 Sergius
 Nobleman
-Rothvine Guard
+Rothvine
 Varnius Junius
 Varona Nelas
 Vartheim
 Pelgurt
 Benild
 Veezara
-Vekel the Man
+Vekel
 Velehk Sain
 Vendil Severin
 Vex
@@ -1089,18 +1076,16 @@ Viarmo
 Vigilant Tyranus
 Vigilants of Stendarr
 Vignar Gray-Mane
-Vilemyr Inn
+Vilemyr
 Vilkas
 Vingalmo
 Viola Giordano
 Vittoria Vici
 Vivienne Onis
-Vlindrel Hall
+Vlindrel
 Voada
-Voice of Namira
+Namira
 Vokun
-Volkihar
-Volkihar Clan
 Volkihar Ruins
 Volsung
 Volunruud
@@ -1109,33 +1094,32 @@ Voslaarum
 Vyrthur
 Wary Outlaw
 Watches-The-Roots
-Whistling Mine
+Whistling
 Whiterun
 Wilhelm
 Windhelm
 Windhelm Docks
-Windhelm Jail
-Windstad Manor
-Winterhold
-Winterhold Cemetery
+Windstad
 Wispmothers
 Wisps
-Wolfskull Cave
+Wolfskull
 Wulfgar
-Wuunferth the Unliving
-Yamarz
+Ulfgar
+Wuunferth Unliving
 Yngol Barrow
-Yngvar the Singer
+Yngvar
 Yorgrim Overlook
 Yrsa
 Yrsarald Thrice-Pierced
 Ysgramor
+Deepholme
+Isobel
 Ysolda
 Zahkriisos
 Zaria
 Eddvia Jucani
 Hulgard
-Imperial Quartermaster
+Quartermaster
 Crouches-In-Crevices
 Dar'taqto
 Dumrag gro-Morrg
@@ -1144,21 +1128,20 @@ Svenja Strong-Arm
 Ananril
 Arilus Quenti
 Balius
-Leo
-Serulius the Stagnant
+Serulius Stagnant
 Reln-Tei
 Atienne Guilette
-Botram the Hammer
+Botram
 Eranir
-Ila the Upright
+Ila Upright
 Cadius Venucius
-Roland Wickhart
+Wickhart
 Elintius Rentilia
 Adius Vilius
 Afanna Eddici
 Armion
 Bolar Gratius
-Count Desilus Carvain
+Desilus Carvain
 Farsvar
 Rignar
 Simund Gautierre
@@ -1182,7 +1165,7 @@ Banus Jucani
 Ruccia Jucani
 Cerendil
 Gort
-Razzada the Resplendent
+Razzada Resplendent
 Renod Even-Toned
 Rilja Stone-Hearth
 Ellina Iron-Heart
@@ -1207,10 +1190,10 @@ Atul
 Afer Famalius
 Amiel Famalius
 Rona Famalius
-Arnoth the Bright-Eyed
+Arnoth Bright-Eyed
 Avar
 Erlus Risula
-Aera the Devout
+Aera Devout
 Crecius Rodlin
 Ulgruff Chill-Wind
 Alina
@@ -1226,190 +1209,175 @@ Encarnus
 Kalimbria
 Ravil Fandrani
 Centos Durius
-Mirich Ran
+Mirich
 Nurenor
 Vilenoldil
 Alavva Venucius
 Aretino
-Brecius the Pillager
+Brecius Pillager
 Dar'zorben
 Gavros Libertius
 Grecus
 Grushnag gro-Arkul
 Harran Iron-Heart
-Headless Vampire
-Marc Dufonte
+Headless
+Dufonte
 Mucky Ovacca
-Mysterious Bosmer
+Bosmer
 Neldam Beloth
 Quintus Ambivio
 Retching Cornelius
 Telenis Nonno
 Ungveir
 Bruma
-Castle Bruma
 Bruma Stables
 Applewatch
-Gautierre Manor
+Gautierre
 Greenwood
 Hunter's Shack
-Lakeside Retreat
-Riverside Shack
-Sercen Hills Forester Outpost
+Lakeside
+Shack
+Sercen Forester Outpost
 Anga
 Rielle
 Sedor
-Camp of the Devout
-Plump Rat Camp
-Rock Creek Camp
-The Beast's Maw
+Devout
+Plump
+Beast's Maw
 Bruma Caverns
-Boreal Stone Cave
-Capstone Cave
+Boreal
+Capstone
 Cutpurse Hideout
-Freezewind Hollow
+Freezewind
 Frostfire Glade
-Frozen Grotto
+Grotto
 Hjalti's Refuge
-Northfringe Cave
-Red Ruby Cave
-Serpent's Trail
-Silver Tooth Cave
-Toadstool Hollow
-Underpall Cave
-Unmarked Cave
+Northfringe
+Serpent
+Toadstool
+Underpall
+Unmarked
 Shrine of Namira
-Cloud Ruler Temple
-Dragonclaw Rock
+Ruler
+Dragonclaw
 Frostcrag Spire
-Gnoll Mountain
-Reman's Fist
-The Sentinel
-Whitewood Creek
-Pale Pass
-Skyrim Border Gate
-Fort Horunn
-Fort Pale Pass
-Gutted Mine
-Plundered Mine
-Bruma Eastern Watchtower
-Bruma Western Watchtower
-Skaal Village
-Dark Brotherhood Sanctuary
+Gnoll
+Reman
+Sentinel
+Whitewood
+Skyrim
+Kyre
+Horunn
+Gutted
+Plundered
+Bruma Watchtower
+Skaal
+Brotherhood Sanctuary
 Honningbrew Meadery
 Japhet's Folly
-Nightgate Inn
-Old Hroldan Inn
-Stonehills
-Tel Mithryn
-Thalmor Embassy
-Thirsk Mead Hall
-Corpselight Farm
+Mithryn
+Thalmor
+Thirsk Mead
+Corpselight
 Cowflop Farmhouse
-Fellstar Farm
+Fellstar
 Goldenhills Plantation
-Hlaalu Farm
-Hollyfrost Farm
-Katla's Farm
+Hlaalu
+Hollyfrost
+Katla
 Lemkil's Farmhouse
-Lylvieve Family's House
-Merryfair Farm
-Chillfurrow Farm
-Loreius Farm
-Pelagia Farm
-Salvius Farm
-Sarethi Farm
-Snow-Shod Farm
-Dragon Bridge Lumber Camp
-Heartwood Mill
-Abandoned Lodge
-Abandoned Shack
+Lylvieve Family
+Merryfair
+Chillfurrow
+Loreius
+Pelagia
+Salvius
+Sarethi
+Snow-Shod
+Lumber
+Heartwood
 Alchemist's Shack
-Angi's Camp
-Anise's Cabin
-Cliffside Retreat
+Angi
+Anise
+Cliffside
 Crabber's Shanty
-Drelas' Cottage
+Drelas'
 Froki's Shack
-Hall of the Vigilant
+Vigilant
 Lund's Hut
 Meeko's Shack
-Ramshackle Trading Post
-Traitor's Post
-East Empire Company Warehouse
+Ramshackle
+Traitor
 Icewater Jetty
-Northshore Landing
+Northshore
 Riften Docks
 Solitude Lighthouse
-Bujold's Retreat
-Dragon Bridge Overlook
+Bujold
 Druadach Redoubt
-Last Vigil
+Vigil
 Robber's Gorge
 Serpent's Bluff Redoubt
-Ashfall's Tear
+Ashfall
 Benkongerike
-Blackbone Isle Grotto
+Blackbone Grotto
 Bloodchill Cavern
 Brinewater Grotto
-Brittleshin Pass
+Brittleshin
 Brood Cavern
 Bruca's Leap Redoubt
-Castle Karstaag Caverns
+Karstaag Caverns
 Chillwind Depths
-Clearspring Cave
-Cold Rock Pass
-Coldcinder Cave
+Clearspring
+Coldcinder
+Elmera
+Daeenlit
+Shargam
+Elmera
 Cragslane Cavern
-Cronvangr Cave
+Cronvangr
 Darkshade
-Darkwater Pass
 Eldergleam Sanctuary
 Frostmoon Crag
-Frostroot Cave
+Frostroot
 Greywater Grotto
-Gromm's Pass
-Honeystrand Cave
+Gromm
+Honeystrand
 Hrothmund's Barrow
-Iron Tusk Cave
-Lost Knife Hideout
-Mara's Eye Den
+Tusk
+Hideout
+Mara
 Orotheim
-Pinemoon Cave
+Pinemoon
 Pinepeak Cavern
 Runoff Caverns
 Ruunvald Excavation
 Septimus Signus's Outpost
-Sightless Pit
+Sightless
 Steepfall Burrow
-Stillborn Cave
-Swindler's Den
-Uttering Hills Cave
-White River Watch
+Stillborn
+Swindler
+Uttering
 Yngvild
 Shrine of Mehrunes Dagon
 Statue to Meridia
-Abandoned House
 Shrine of Nocturnal
 Shrine to Peryite
-Bonestrewn Crest
-Eldersblood Peak
-Saering's Watch
+Bonestrewn
+Eldersblood
+Saering
 Skyborn Altar
 Arkngthamz
-Debate Hall
 Derelict Pumphouse
-Farm Overseer's House
-Hall of Rumination
-Pumping Station
-Reeking Tower
-Silent Ruin
-Sinderion's Field Laboratory
-War Quarters
+Overseer
+Rumination
+Pumping
+Reeking
+Ruin
+Sinderion
 Fahlbtharz
-Great Lift at Alftand
-Great Lift at Mzinchaleft
-Great Lift at Raldbthar
+at Alftand
+at Mzinchaleft
+at Raldbthar
 Irkngthand
 Kagrenzel
 Kagrumez
@@ -1417,331 +1385,206 @@ Mzinchaleft
 Mzulft
 Reachwind Eyrie
 Ruins of Rkund
-Bleakwind Basin
-Blizzard Rest
-Cradlecrush Rock
-Guldun Rock
-Red Road Pass
-Secunda's Kiss
-Sleeping Tree Camp
-Steamcrag Camp
+Bleakwind
+Blizzard
+Cradlecrush
+Guldun
+Secunda
+Steamcrag
 Stonehill Bluff
-Talking Stone Camp
-Tumble Arch Pass
-Bard's Leap Summit
-Blackbone Isle
-Brodir Grove
-Druadach Mountains
-Frykte Peak
-Giant's Tooth
+Tumble
+Bard's Leap
+Blackbone
+Brodir
+Druadach
+Frykte
 Gjukar's Monument
-Hvitkald Peak
-Jerall Mountains
-Mortrag Peak
-Mount Moesring
-Orphan Rock
-Stalhrim Source
-Throat of the World
-Velothi Mountains
-Weynon Stones
-Autumnshade Clearing
-Clearpine Pond
+Hvitkald
+Jerall
+Mortrag
+Moesring
+Orphan
+Stalhrim
+Velothi
+Weynon
+Autumnshade
+Clearpine
 Clearspring Tarn
 Headwaters of Harstrad
-Mara's Eye Pond
 Ancestor Glade
-Evergreen Grove
-Greenspring Hollow
-Shrouded Grove
-Witchmist Grove
-Dunmeth Pass
-Moesring Pass
-Skybound Watch Pass
-Wayward Pass
-Eastmarch Imperial Camp
-Falkreath Imperial Camp
-Hjaalmarch Imperial Camp
-Pale Imperial Camp
-Reach Imperial Camp
-Rift Imperial Camp
-Whiterun Imperial Camp
-Windhelm Military Camp
-Winterhold Imperial Camp
-Falkreath Stormcloak Camp
-Hjaalmarch Stormcloak Camp
-Pale Stormcloak Camp
-Reach Stormcloak Camp
-Rift Stormcloak Camp
-Solitude Military Camp
-Whiterun Military Camp
-Whiterun Stormcloak Camp
-Winterhold Stormcloak Camp
-Fort Dunstad
-Fort Greenwall
-Fort Kastav
-Fort Snowhawk
+Evergreen
+Greenspring
+Shrouded
+Witchmist
+Dunmeth
+Wayward
+Eastmarch
+Rift
+Falkreath Stormcloak
+Hjaalmarch Stormcloak
+Stormcloak
+Rift Stormcloak
+Whiterun Stormcloak
+Winterhold Stormcloak
+Dunstad
+Greenwall
+Kastav
+Snowhawk
 Volkihar Courtyard
-Volkihar Keep
 Ashfallow Citadel
 Driftshade Refuge
-Faldar's Tooth
-Fort Fellhammer
-Fort Frostmoth
-Highpoint Tower
-Ilinalta's Deep
+Faldar
+Fellhammer
+Frostmoth
+Highpoint
+Ilinalta
 Morvunskar
-Nightcaller Temple
-Western Watchtower
-Healing
-Lesser Ward
-Fast Healing
-Healing Hands
-Necromantic Healing
-Steadfast Ward
-Sun Fire
-Turn Lesser Undead
-Close Wounds
-Greater Ward
-Heal Other
+Tiber Septim
+Nightcaller
+Watchtower
+Necromantic
+Steadfast
+Undead
+Wounds
+Heal
 Heal Undead
-Poison Rune
-Repel Lesser Undead
+Rune
+Repel Undead
 Stendarr's Aura
 Sewers
-Turn Undead
 Vampire's Bane
-Circle of Protection
-Grand Healing
-Repel Undead
-Turn Greater Undead
-Bane of the Undead
-Guardian Circle
+Bane of Undead
 Clairvoyance
-Courage
 Fury
-Calm
-Fear
 Muffle
 Frenzy
 Frenzy Rune
-Orum's Aquatic Escape
-Rally
-Fenrik's Welcome
+Orum
+Fenrik
 Invisibility
 Pacify
 Choking Grasp
 Elemental Flare
 Flames
-Frostbite
 Sparks
-Elemental Bolt
-Fire Rune
+Elemental
 Firebolt
-Freeze
-Frost Rune
-Ice Spike
+Spike
 Ignite
-Lightning Bolt
-Lightning Rune
 Strangulation
-Chain Lightning
-Elemental Burst
 Fireball
-Flame Cloak
-Frost Cloak
+Cloak
 Hangman's Noose
-Ice Storm
-Lightning Cloak
 Whirlwind Cloak
-Elemental Blast
 Icy Spear
 Incinerate
 Mara's Wrath
 Thunderbolt
-Touch of Death
 Unbounded Flames
 Unbounded Freezing
 Unbounded Storms
-Wall of Flames
-Wall of Frost
-Wall of Storms
-Blizzard
-Fire Storm
-Lightning Storm
+Flames
+Storms
 Arniel's Convection
-Vampiric Drain
-Bound Quiver
-Conjure Ash Spawn
-Conjure Dark Seducer Archer
-Conjure Dark Seducer Warrior
-Conjure Frost Atronach
-Conjure Golden Saint Archer
-Conjure Golden Saint Warrior
-Conjure Mistman
-Conjure Putrid Zombie
-Conjure Seeker
-Conjure Skeleton Champion
-Conjure Tomb Guardian
+Vampiric
+Quiver
+Conjure
 Necromancer's Ritual
 Revenant
-Conjure Ash Guardian
-Command Daedra
-Conjure Ayleid Lich
-Conjure Cursed Spectre
-Conjure Dragon Priest
-Conjure Dremora Lord
-Conjure Malignant Zombie
-Conjure Skeleton Warlock
-Conjure Storm Atronach
-Conjure Wrathman
+Ashian
+Daedra
+Ayleid Lich
+Cursed Spectre
+Malignant Zombie
+Skeleton Warlock
+Wrathman
 Dread Zombie
 Expel Daedra
-Pride of Hirstaang
-Conjure Ancient Deathpriest
-Conjure Bone Colossus
+Hirstaang
+Conjure Deathpriest
+Conjure Colossus
 Conjure Staada
-Flame Thrall
-Dead Thrall
-Frost Thrall
-Storm Thrall
-Spectral Arrow
-Summon Arniel's Shade
+Thrall
+Spectral
+Summon Arniel
 Summon Unbound Dremora
-Bound Dagger
-Bound Sword
-Conjure Familiar
+Dagger
 Conjure Skeleton Minion
-Conjure Undying Ghost
+Conjure Undying
 Conjure Zombie
-Raise Zombie
-Bound Battleaxe
+Zombie
+Battleaxe
 Conjure Boneman
-Conjure Flame Atronach
-Conjure Foul Zombie
-Conjure Haunting Spirit
+Conjure Atronach
+Conjure Haunting
 Conjure Skeleton Marksman
-Flaming Familiar
+Flaming
 Reanimate Corpse
-Soul Split
-Soul Trap
-Summon Arvak
-Summon Daedric Horse
-Banish Daedra
-Banish Undead
-Bound Bow
-Master Transmute
+Arvak
+Transmute
 Paralysis Rune
 Telekinesis
 Telekinesis Arrows
-Transmute
 Waterbreathing
-Ash Rune
-Detect Dead
 Ebonyflesh
 Paralyze
 Dragonhide
-Mass Paralysis
-Equilibrium
+Paralysis
 Magelight
 Stoneflesh
-Ash Shell
-Detect Life
 Ironflesh
 Oakflesh
-Ash Hopper
-Bear
-Bristleback
-Chicken
-Cow
-Deer
-Dog
-Fox
-Goat
-Horse
-Mammoth
-Mudcrab
+Hopper
 Nix-Hound
-Rabbit
 Slaughterfish
-Ash Spawn
-Flame Atronach
-Potent Flame Atronach
-Pelagius' Flame Thrall
-Pelagius' Frost Thrall
-Frost Atronach
-Potent Frost Atronach
-Pelagius's Storm Thrall
-Storm Atronach
-Potent Storm Atronach
+Spawn
+Potent Atronach
+Pelagius' Thrall
+Pelagius's Thrall
 Lurker
-Lurker Guardian
+Lurkerian
 Lurker Sentinel
 Lurker Vindicator
-Golden Saint
-Seeker Aspirant
-High Seeker
-Potent Storm Thrall
+Aspirant
+Potent Thrall
 Falmer
 Falmer Nightprowler
 Falmer Warmonger
-Frostbite Spider
-Wounded Frostbite Spider
-Giant
-Ice Wraith
-Magic Anomaly
-Spriggan Earth Mother
-Troll
+Wounded Frostbite
+Wraith
+Anomaly
 Wisp
 Wispmother
 Dwarven Centurion
+Centurion
 Legate
-Ancient Frost Atronach
-Ash Guardian
 Dwarven Ballista
-Dwarven Sphere
-Dwarven Spider
+Dwarven
 Burnt Spriggan
-Dragon
 Elytra Nymph
-Fire Wyrm
-Frost Giant
+Wyrm
 Gargoyle
 Goblin
 Riekling
 Spiders
 Werewolf
-Ayleid Lich
-Bone Wolf
-Death Hound
+Hound
 Ayleid
-Dragon Priest
-Ghost
 Skeleton
 Wight
-Zombie
-Snowy Sabre Cat
-Vale Sabre Cat
+Vale Sabre
 Venomfang Skeever
-Ice Wolf
-Pit Wolf
-Cave Bear
-Snow Bear
-Medium Mudcrab
-Large Mudcrab
-Giant Mudcrab
-Death HoundDG
-Snow Fox
-Vale Deer
+Mudcrab
+Vale
 Elk
-Redwater Skooma Addict
-Lone Adventurer
+Skooma
+Adventurer
 Aeri
 Aeta
 Affable Gent
 Afflicted
 Afflicted Refugee
-Afflicted Remnants
-Agent Lorcalin
+Lorcalin
 Agna
 Agni
 Agnis
@@ -1750,12 +1593,10 @@ Ahtar
 Akar
 Alduin
 Alfhild Battle-Born
-Alik'r Prisoner
-Alik'r Warrior
+Alik'r
 Alvide
 Ancarion
 Anders
-Anger
 Angvid
 Anwen
 Aphia Velothi
@@ -1764,7 +1605,7 @@ Arch-Curate Vyrthur
 Arcturus
 Ardwen
 Ari
-Arniel's Shade
+Arniel
 Arob
 Asbjorn Fire-Tamer
 Aspiring Mage
@@ -1778,92 +1619,55 @@ Azzada Lylvieve
 Badnir
 Bagrak
 Balbus
-Bandit Chief Lieutenant
-Bandit Doorwarden
-Bandit Dropper
-Bandit Dropper Assailant
-Bandit Dropper Assassin
-Bandit Dropper Eliminator
-Bandit Dropper Killer
-Bandit Exalted Lieutenant
-Bandit Highwayman
-Bandit Highwayman Archer
-Bandit Highwayman Mage
-Bandit Highwayman Warrior
-Bandit Ice Mage Exalted Lieutenant
-Bandit Lieutenant
-Bandit Lieutenant Overseer
-Bandit Mage
-Bandit Marauder Archer
-Bandit Marauder Warrior
-Bandit Outlaw
-Bandit Outlaw Archer
-Bandit Outlaw Mage
-Bandit Outlaw Warrior
-Bandit Plunderer Warrior
-Bandit Raid Lieutenant
-Bandit Ringleader
-Bandit Sorcerer
-Bandit Spellslinger
-Bandit Thief
-Bandit Thug Archer
-Bandit Thug Mage
-Bandit Thug Warrior
-Bandit Warrior
 Mistwatch Bandit
 Baral Sendu
 Beem-Ja
 Beirand
 Bjornolfr
 Blaise
-Blood Horker
 Bodil
 Bodyguard
 Boethiah Cultist
 Bolfrida Brandy-Mug
 Bradyn
 Bralsa Drel
-Bujold the Unworthy
+Bujold Unworthy
 Calder
-Captain Aldis
-Captain Aquilius
-Dead Imperial Woman
+Aldis
+Aquilius
 Apprentice Conjurer
-Arch Conjurer
-Ascendant Conjurer
+Ataxia
+BlightDB
+Rot
+Rockjoint
+Sanguinare Vampiris
+Witbane
 Conjurer
+Ascendant Conjurer
 Conjurer Adept
-Master Conjurer
 Novice Conjurer
-Dawnguard Hunter
 Dawnguard Novice Hakar
-Dawnguard Scout
-Dawnguard Vampire Hunter
-Redwater Den Dealer
 Deor Woodcutter
-DomnaMagia
 Doorman
-Dremora Butler
-Dremora Merchant
 Dreyla Alor
 Dro'marash
-Drunk Cultist
+Cultist
 Dryston
 Dulug
 Dushnamub
-East Empire Dockmaster
-East Empire Dockworker
-East Empire Mercenary
-East Empire Warden
+Dockmaster
+Dockworker
+Mercenary
+Warden
 Edda
 Edith
 Edla
 Eimar
 Eirid
 Elda Early-Dawn
-Elder Othreloth
+Othreloth
 Elgrim
-Jarl Elisif the Fair
+Jarl Elisif
 Elmus
 Elrindir
 Elynea Mothren
@@ -1873,12 +1677,11 @@ Engar
 Enmon
 Ennoc
 Ennodius Papius
-Enthralled Wizard
+Enthralled
 Eriana
-Erik
 Eris
 Erj
-Escaped Prisoner
+Escaped
 Esmond Tyne
 Evul Seloth
 Faida
@@ -1886,42 +1689,34 @@ Faldrus
 Falmer Servant
 Fanari Strong-Voice
 Faryl Atheron
-Fellow Prisoner
-Feral Vampire
+Feral
 Fethis Alor
 Fianna
-Apprentice Fire Mage
-Arch Pyromancer
-Fire Mage
-Fire Mage Adept
-Fire Wizard
-Novice Fire Mage
+Apprentice Mage
 Pyromancer
+Mage Adept
+Novice Mage
 Firir
-First Mate
 Fisherman
 Fjori
 Fjotra
-Fort Commander
 Francois Beaufort
 Freir
 Frida
 Fridrika
-Frightened Woman
+Frightened
 Frodnar
 Frofnir Trollsbane
 Froki Whetted-Blade
 From-Deepest-Fathoms
-Frost
 Fruki
 Fugitive Thief
 Fultheim
-Fultheim the Fearless
+Fultheim Fearless
 Gadba gro-Largash
 Gadnor
 Galdrus Hlervu
 Gallus
-Gambler
 Ganna Uriel
 Garakh
 Garthar
@@ -1933,16 +1728,16 @@ Gavros Plinius
 Geimund
 Geirlund
 Gemma Uriel
-General Falx Carius
+Falx Carius
 Gerda
 Gestur Rockbreaker
 Ghak
 Ghamorz
 Gharol
 Ghorza gra-Bagol
-Ghost of Old Hroldan
+Hroldan
 Ghunzul
-Gian the Fist
+Gian
 Gilfre
 Giraud Gemane
 Gjak
@@ -1950,15 +1745,15 @@ Gjuk
 Gloth
 Gralnach
 Gregor
-Grelod the Kind
+Grelod
 Greta
 Grim Shieldmaiden
 Grimvar Cruel-Sea
-Grisvar the Unlucky
+Grisvar Unlucky
 Grogmar gro-Burzag
 Grosta
 Grushnag
-Guardian Saerek
+Saerek
 Gul
 Gunding
 Gunnar Stone-Eye
@@ -1979,7 +1774,7 @@ Hathrasil
 Headless Horseman
 Headsman
 Heddic Volunnar
-Hefid the Deaf
+Hefid
 Heimskr
 Heimvar
 Helgird
@@ -1994,33 +1789,17 @@ Hewnon Black-Skeever
 Hilde
 Hillevi Cruel-Sea
 Hilund
-Aspect of Hircine
-Hired Thug
+Hircine
+Thug
 Hjalfar
 Hjordis
 Hjorunn
 Hoddreid
 Hofgrir Horse-Crusher
 Hogni Red-Arm
-Dawnstar Guard
-Falkreath Guard
-Haafingar Guard
-Hjaalmarch Guard
-Imperial Guard
-Ivarstead Guard
-Markarth City Guard
-Pale Hold Guard
-Reach Hold Guard
-Rift Guard
-Riften Guard
-Roadside Guard
-Shor's Stone Guard
-Silver-Blood Guard
-Solitude Guard
-Stormcloak Guard
-Whiterun Guard
-Windhelm Guard
-Winterhold Guard
+Haafingar
+Roadside
+Silver-Blood
 Holgeir
 Horgeir
 Horm
@@ -2032,37 +1811,20 @@ Hroki
 Hrolmir
 Huki Seven-Swords
 Hulda
-Hunter
-Apprentice Ice Mage
-Arch Cryomancer
+Novice
 Cryomancer
-Ice Mage
-Ice Mage Adept
-Ice Wizard
-Novice Ice Mage
 Idesa Sadri
 Jarl Idgrod Ravencrone
 Ilas-Tei
 Illdi
 Imedhnain
-Imperial Archer
-Imperial Captain
-Imperial Courier
-Imperial Deserter
-Imperial General
-Imperial Mage
-Imperial Officer
-Imperial Soldier
-Imperial Wizard
 Indara Caerellia
-Inge Six Fingers
-Ingrid
-Insane College Wizard
+Inge
+Insane
 Irgnir
 Irlof
 Irnskar Ironhand
 Isabelle Rolaine
-Itinerant Lumberjack
 J'darr
 J'Kier
 J'zargo
@@ -2075,7 +1837,6 @@ Jervar
 Jesper
 Jiub
 Jolf
-Jon Battle-Born
 Jonna
 Jonquil
 Jorgen
@@ -2084,31 +1845,28 @@ Jouane Manette
 Julienne Lylvieve
 Jyrik Gauldurson
 Karita
-Karl
 Katla
 Katria
 Kayd
 Keeper Carcette
 Kematu
 Kerah
-Kesh the Clean
+Kesh
 Kharag gro-Shurkul
 Khayla
 Kibell
 Kjeld
-Kjeld the Younger
 Klimmek
 Knight-Paladin Gelebor
 Knjakr
 Knud
 Kodrir
-Kolbjorn Guard
+Kolbjorn
 Kornalus
 Krag
-Krev the Skinner
+Krev Skinner
 Kuvar
 Kyr
-Laelette the Vampire
 Larina
 Lars Battle-Born
 Lash gra-Dushnikh
@@ -2124,20 +1882,17 @@ Lillith Maiden-Loom
 Linwe
 Lisbet
 Lisette
-Little Pelagius
-Llewellyn the Nightingale
-Load Dummy
+Llewellyn Nightingale
 Lodi
 Lodvar
-Logrolf the Willful
+Logrolf Willful
 Lokir
 Lond
 Lortheim
 Lowlife
 Lu'ah Al-Skaven
 Luaffyn
-Lucia
-Lucky Lorenz
+Lorenz
 Lund
 Lynly Star-Sung
 Lynoit
@@ -2173,7 +1928,6 @@ Melaran
 Melka
 Mena
 Merilar Rendas
-Michel Lylvieve
 Mikael
 Mikrul Gauldurson
 Mila Valentia
@@ -2196,17 +1950,16 @@ Nagrub
 Namira
 Nana Ildene
 Naris Mavani
-Naris the Wicked
+Naris
 Narri
 Apprentice Necromancer
-Arch Necromancer
+Necromancer
 Ascendant Necromancer
-Master Necromancer
 Necromage
 Necromancer Adept
 Novice Necromancer
 Neetrenaza
-Nepos the Nose
+Nepos
 Niels
 Nils
 Nilsine Shatter-Shield
@@ -2217,12 +1970,7 @@ Niruin
 Nirya
 Nivenor
 Niyya
-Noble
 Noblewoman
-Northwatch Guard
-Northwatch Interrogator
-Northwatch Mage
-Northwatch Prisoner
 Nura Snow-Shod
 Nurelion
 Odar
@@ -2231,13 +1979,11 @@ Odvan
 Oengul War-Anvil
 Oglub
 Ogmund
-King Olaf One-Eye
-Old Orc
+Orc
 Olda
 Olfina Gray-Mane
 Olur
 Ondolemar
-Orc Hunter
 Orchendor
 Orcish Invader
 Orgnar
@@ -2248,18 +1994,11 @@ Orthorn
 Orthus Endario
 Palevius Lex
 Pantea Ateia
-Female Peddler
-Male Peddler
-Pelagius the Suspicious
-Pelagius the Tormented
-Penitus Oculatus Agent
-Perth
+Pelagius
 Petra
-Pit Fan
 Plautis Carvain
-Player Friend
 Poacher
-Poor Fishwife
+Fishwife
 Prelate Athring
 Prelate Celegriath
 Prelate Edhelbor
@@ -2282,39 +2021,14 @@ Ravam Verethi
 Ravyn Imyan
 Rayya
 Bandit Reaver
-Bandit Reaver Archer
-Bandit Reaver Chief Lieutenant
-Bandit Reaver Exalted Lieutenant
-Bandit Reaver Highwayman Archer
-Bandit Reaver Highwayman Mage
-Bandit Reaver Highwayman Warrior
-Bandit Reaver Lieutenant
-Bandit Reaver Lieutenant Overseer
-Bandit Reaver Lord
-Bandit Reaver Mage
-Bandit Reaver Marauder Archer
-Bandit Reaver Marauder Mage
-Bandit Reaver Marauder Warrior
-Bandit Reaver Outlaw Archer
-Bandit Reaver Outlaw Mage
-Bandit Reaver Outlaw Warrior
-Bandit Reaver Plunderer Archer
-Bandit Reaver Plunderer Mage
-Bandit Reaver Plunderer Warrior
-Bandit Reaver Raid Lieutenant
-Bandit Reaver Thug Archer
-Bandit Reaver Thug Mage
-Bandit Reaver Thug Warrior
-Bandit Reaver Warrior
 Reaver
 Reaver Highwayman
 Reaver Marauder
 Reaver Outlaw
 Reaver Plunderer
 Reaver Thug
-Reaver Lord
 Reckless Mage
-Redoran Guard
+Redoran
 Redwater Lookout
 Deceased Refugee
 Reldith
@@ -2324,11 +2038,10 @@ Revus Sarvani
 Revyn Sadri
 Rhiada
 Rhorlak
-Riften Guard Jailor
+Riften Jailor
 Rirns Llervu
 Rissing
-Ritual Master
-Rochelle the Red
+Rochelle
 Rogatus Salvius
 Rogen
 Roggvir
@@ -2339,7 +2052,6 @@ Rorlund
 Rulindil
 Runa Fair-Shield
 Rundi
-Rune
 Saadia
 Saarthal Miner
 Saden
@@ -2352,16 +2064,13 @@ Saliah
 Salma
 Salonia Caelia
 Salvianus
-Samuel
-Sanctuary Guardian
+Sanctuaryian
 Sanyon
-Sapphire
 Sayma
 Scavenger
 Scouts-Many-Marshes
-Seasoned Hunter
+Seasoned
 Sebastian Lort
-Self Doubt
 Selveni Nethri
 Sern
 Servos Rendas
@@ -2371,14 +2080,14 @@ Shahvee
 Shavari
 Shel
 Shuftharz
-Sickly Farmer
+Sickly
 Sifnar Ironkettle
 Sigaar
 Sigdis Gauldurson
 Sigurd
 Silana Petreia
-Sild the Warlock
-Sild's Assistant
+Sild Warlock
+Sild
 Silver-Blood Mercenary
 Sirgar
 Sirkjorg
@@ -2387,54 +2096,39 @@ Skaggi Scar-Face
 Jarl Skald
 Skuli
 Skulvar Sable-Hilt
-Traveling Noblewoman
 Slitter
 Snilf
 Snilling
 Snorreid
 Sofie
 Solaf
-Imperial Soldier Impersonator - Breton
-Imperial Soldier Impersonator - Dunmer
-Imperial Soldier Impersonator - Orc
 Sondas Drenim
 Sonir
 Sorex Vinius
 Sosia Tremellia
 Spectral Assassin
-Spirit of the Ancient Traveler
 Stalf
 Stalleo
 Stalleo's Bodyguard
 Stands-In-Shallows
 Staubin
 Stig Salt-Plank
-Apprentice Storm Mage
-Arch Electromancer
 Electromancer
-Novice Storm Mage
-Storm Mage
-Storm Mage Adept
-Storm Wizard
-Stormcloak Courier
-Stormcloak General
 Stormcloak Quartermaster
-Stormcloak Soldier
 Stromm
-Aspiring College Student
+Aspiring
 Styrr
 Sudi
 Sulla Trebatius
-Sultry Maiden
-Sulvar the Steady
-Summerset Shadow
+Sultry
+Sulvar
+Summerset
 Suvaris Atheron
 Svari
 Swanhvir
 Sylgja
 Synda Llanith
 Syndus
-Synod Researcher
 Taarie
 Tacitus Sallustius
 Talib
@@ -2446,37 +2140,30 @@ Temba Wide-Arm
 Terek
 Thadgeir
 Thaer
-Agent Sanyon
 Thalmor Justiciar
-The Caller
 Thief
 Thjollod
-Thomas
 Thonar Silver-Blood
 Thongvor Silver-Blood
 Thorald Gray-Mane
 Thorek
 Thorgar
 Thoring
-Threki the Innocent
+Threki
 Thrynn
 Tilde
-Tilma the Haggard
-Emperor Titus Mede II
+Tilma Haggard
+Titus Mede
 Tolenos Omoren
 Torbjorn Shatter-Shield
 Torkild
-Torkild the Fearsome
+Torkild Fearsome
 Tormir
 Torolf
-Torture Victim
 Torturer
-Torturer's Assistant
-Hooded Traveler
-Traveling Bard
-Traveling Dignitary
-Traveling Merchant
-Traveling Pilgrim
+Torturer
+Bard
+Dignitary
 Trius
 Tsavani
 Tsrasuna
@@ -2488,14 +2175,13 @@ Uaile
 Uglarz
 Ulag
 Ulfberth War-Bear
-Ulfr the Blind
-Jarl Ulfric Stormcloak
+Ulfr
 Ulundil
 Ulves Romoran
 Ulyn
 Umana
+Miasma
 Umurn
-Una
 Ungrien
 Uraccen
 Grown-Up Urchin
@@ -2509,18 +2195,7 @@ Valga Vinicia
 Valie
 Valindor
 Vals Veran
-Ancient Vampire
-Blooded Vampire
-Master Vampire
-Nightlord Vampire
-Nightmaster Vampire
-Vampire
-Vampire Fledgling
-Vampire Nightstalker
-Volkihar Master Vampire
-Volkihar Vampire
-Vampire Assassin
-Vampire Scout
+Nightstalker
 Vanik
 Vanryth Gatharian
 Vasha
@@ -2535,22 +2210,37 @@ Vighar
 Vigilant Adalvald
 Vigilant Tolan
 Viinturuth
+Auryen Morellus
+Madras
+Griegor
+Patero Marassi
+Latoria
+Eriana
+Darnette
+Ezra
+Rakis
+Barrow 
 Vilod
-Vipir the Fleet
+Wulfharth
+Vipir
 Virkmund
-Visiting Advisor
-Visiting Noble
 Voldsea Giryon
+Dunyick
+Wyrmstooth
+Red Wave
 Volk
 Vuljotnaak
+Waylayer
+Bluff
 Vulthuryol
 Vulwulf Snow-Shod
+Coldwave Crescent
 Watchman
 Weylin
 Willem
 Wilmuth
 Deceased Talos-Worshiper
-Wounded Soldier
+Wounded
 Wujeeta
 Wulf Wild-Blood
 Wylandriah
@@ -2560,5 +2250,14 @@ Yag gra-Gortwog
 Yar gro-Gatuk
 Yatul
 Yisra
-Yngvild Ghost
 Zaynabi
+Mirai
+Valfar
+Lucien
+Vilja
+Eryniel
+Arissa
+Kaidan
+Inigo
+Tania
+Ambriel
