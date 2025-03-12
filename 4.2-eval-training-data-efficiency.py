@@ -98,8 +98,9 @@ def main():
     
     # Configurable list of checkpoint result YAML files.
     checkpoint_files = [
-        "./whisper-skyrim-en/checkpoint-2000",
-    ]
+        "./whisper-skyrim-en/checkpoint-1800",
+        "./whisper-skyrim-en/checkpoint-1200",
+        ]
     
     # Load transcription results for each checkpoint.
     results_by_ckpt = {}

@@ -34,11 +34,11 @@ WHISPER_MODEL = "openai/whisper-base.en"  # Can be changed to other Whisper mode
 LANGUAGE = "english"  # Language for transcription
 TASK = "transcribe"  # Task type
 OUTPUT_DIR = "./whisper-skyrim-en"  # Output directory for model checkpoints
-TRAINING_STEPS = 1800  # Total training steps
+TRAINING_STEPS = 3000  # Total training steps
 EVAL_STEPS = 600  # Evaluate every N steps
 SAVE_STEPS = 600  # Save checkpoint every N steps
-TRAIN_BATCH_SIZE = 16  # Batch size for training
-EVAL_BATCH_SIZE = 8  # Batch size for evaluation
+TRAIN_BATCH_SIZE = 24  # Batch size for training
+EVAL_BATCH_SIZE = 12  # Batch size for evaluation
 PUSH_TO_HUB = True  # Whether to push models to Hugging Face Hub
 HF_TOKEN = None  # Set to your Hugging Face token or None to prompt
 REPO_NAME = "whisper-skyrim-en"  # Repository name on Hugging Face Hub
@@ -50,7 +50,7 @@ TEXT_COLUMN_NAME = "sentence"  # Column name for transcription text
 NUM_PROC = 1  # Number of processes for dataset operations (set to 1 to avoid multiprocessing issues)
 
 # Configurable percentage (between 0 and 1) of common-voice-en examples to add
-commonVoicePct01 = 0.15
+commonVoicePct01 = 0.0
 
 def main():
     print_stage_header("Stage 2: Training Whisper on Skyrim Dataset")
@@ -300,12 +300,12 @@ def main():
         output_dir=OUTPUT_DIR,
         per_device_train_batch_size=TRAIN_BATCH_SIZE,
         gradient_accumulation_steps=4,
-        learning_rate=3e-6,
+        learning_rate=5e-6,
         num_train_epochs=8,
         max_steps=TRAINING_STEPS,
-        warmup_steps=1000,
+        warmup_steps=1500,
         lr_scheduler_type="linear",
-        weight_decay=0.01,
+        weight_decay=0.0075,
         gradient_checkpointing=True,
         fp16=True,
         evaluation_strategy="steps",

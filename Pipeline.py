@@ -9,8 +9,8 @@ import sys
 colorama.init(autoreset=True)
 
 # continains the wav files
-VOICE_FILE_DIR=os.path.join("..", "audio_final")
-FILTERED_VOICE_FILE_DIR=os.path.join("..", "filtered_audio")
+VOICE_FILE_DIR="/mnt/c/Users/mikas/Downloads/VoiceExtra/VoiceFiles"
+FILTERED_VOICE_FILE_DIR="/mnt/c/Users/mikas/Downloads/VoiceExtra/VoiceFiles"
 PHRASES_FILE="./words.txt"
 
 class VoiceLine:

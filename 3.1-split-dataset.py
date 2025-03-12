@@ -19,7 +19,7 @@ INPUT_FILE = "2-training-data.yaml"
 TRAIN_OUTPUT = "2-train.yaml"
 VALIDATION_OUTPUT = "2-validation.yaml"
 TEST_OUTPUT = "2-test.yaml"
-RANDOM_SEED = 43  # For reproducibility
+RANDOM_SEED = 44  # For reproducibility
 
 # Set random seed for reproducibility
 random.seed(RANDOM_SEED)

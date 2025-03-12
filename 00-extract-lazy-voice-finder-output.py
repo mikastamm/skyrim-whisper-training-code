@@ -37,11 +37,11 @@ def move_fuz_files(root_dir):
 def convert_to_xwm():
     os.system(f'pwsh -ExecutionPolicy Bypass -File scripts\\convert_fuz_to_xwm.ps1 -CustomDir "{LAZY_VOICE_FINDER_OUTPUT_DIR}"')
 
-#def cleanup_export_dir():
+# def cleanup_export_dir():
 #    os.rmdir(LAZY_VOICE_FINDER_OUTPUT_DIR)
 
 def convert_to_wav():
-    num_workers = 8
+    num_workers = 4
 
     # Create the destination directory if it doesn't exist.
     if not os.path.exists(VOICE_FILE_DIR):
@@ -57,6 +57,10 @@ def convert_to_wav():
     def convert_file(xwm_file):
         base_name = os.path.splitext(os.path.basename(xwm_file))[0]
         output_wav = os.path.join(VOICE_FILE_DIR, base_name + ".wav")
+        # Only convert if the WAV file does not already exist.
+        if os.path.exists(output_wav):
+            return
+
         # Build the ffmpeg command
         command = [
             "ffmpeg",
@@ -67,8 +71,8 @@ def convert_to_wav():
             output_wav
         ]
         try:
+            print(output_wav)
             subprocess.run(command, check=True)
-            print(f"Converted: {xwm_file} -> {output_wav}")
         except subprocess.CalledProcessError as e:
             print(f"Error converting {xwm_file}: {e}")
 
@@ -77,7 +81,7 @@ def convert_to_wav():
         executor.map(convert_file, xwm_files)
 
 if __name__ == "__main__":
-    move_fuz_files(LAZY_VOICE_FINDER_OUTPUT_DIR)
-    convert_to_xwm()
+    # move_fuz_files(LAZY_VOICE_FINDER_OUTPUT_DIR)
+    # convert_to_xwm()
     convert_to_wav()
-    #cleanup_export_dir()
+    # cleanup_export_dir()

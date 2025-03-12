@@ -6,3 +6,6 @@ token
 venv_training
 whisper-skyrim-en
 venv_win_train
+skyrim-whisper-base.en
+transcription_results*
+*.yaml

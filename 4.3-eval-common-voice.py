@@ -59,20 +59,21 @@ def main():
     # Ensure the audio column is decoded with a 16 kHz sampling rate.
     dataset = dataset.cast_column("audio", Audio(sampling_rate=16000))
     
-    num_samples = 2000
+    num_samples = 15000
     results = {}
     
     # Evaluate base model.
-    #print("\nEvaluating base model (openai/whisper-base.en)...")
-    #base_model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-base.en").to(device)
-    #base_processor = WhisperProcessor.from_pretrained("openai/whisper-base.en", language="english", task="transcribe")
-    #wer_base = evaluate_common_voice(base_model, base_processor, dataset, num_samples=num_samples)
-    #results["base"] = wer_base
-    #print(f"Base model WER: {wer_base:.2f}%")
+   #print("\nEvaluating base model (openai/whisper-base.en)...")
+   #base_model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-base.en").to(device)
+   #base_processor = WhisperProcessor.from_pretrained("openai/whisper-base.en", language="english", task="transcribe")
+   #wer_base = evaluate_common_voice(base_model, base_processor, dataset, num_samples=num_samples)
+   #results["base"] = wer_base
+   #print(f"Base model WER: {wer_base:.2f}%")
     
     # Configurable list of checkpoint directories.
     checkpoint_dirs = [
-        "./whisper-skyrim-en/checkpoint-1800",
+        "./whisper-skyrim-en/8-3FreezeDec2",
+        #"./whisper-skyrim-en/checkpoint-1200",
     ]
     
     # Evaluate each checkpoint.
@@ -81,7 +82,7 @@ def main():
         model = WhisperForConditionalGeneration.from_pretrained(ckpt).to(device)
         # Attempt to load the processor from the checkpoint; fall back if not found.
         if os.path.exists(os.path.join(ckpt, "tokenizer_config.json")):
-            processor = WhisperProcessor.from_pretrained(ckpt, language="english", task="transcribe")
+            processor =WhisperProcessor.from_pretrained("openai/whisper-base.en", language="english", task="transcribe")
         else:
             print("Tokenizer files not found in checkpoint; falling back to base model processor.")
             processor = WhisperProcessor.from_pretrained("openai/whisper-base.en", language="english", task="transcribe")

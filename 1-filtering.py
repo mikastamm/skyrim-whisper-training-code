@@ -16,7 +16,7 @@ from functools import partial
 # =========== Configuration Variables ===========
 # Number of workers for concurrent processing
 AUDIO_DURATION_WORKERS = 8
-SILERO_VAD_WORKERS = 4
+SILERO_VAD_WORKERS = 8
 
 # List of forbidden speakers (voice types)
 FORBIDDEN_SPEAKERS = [
@@ -30,6 +30,7 @@ FORBIDDEN_SPEAKERS = [
     "crdwarvenspidervoice", 
     "crfalmervoice",        
     "crhagravenvoice",
+    "000fcarbitervoicetype"
     "cruniquealduin",
     "cruniqueodahviing",
     "cruniquepaarthurnax",
@@ -42,11 +43,39 @@ FORBIDDEN_SPEAKERS = [
     "dlc2maleuniquemiraak", 
     "dlc2rieklingvoice",
     "femalechild",
+    "dbm_maleuniqueshadowhunter",
+    "ec_ss_femaledarkseducer",
+    "ec_ss_femalegoldensaint",
+    "edwaynevoice",
+    "erwenvoice",
+    "yggleifvoice",
+    "zannfarvoice",
+    "zarlakvoice",
+    "fsnecrovoice03",
+    "hpggobvoicef01",
+    "hpggobvoicef02",
+    "hpggobvoicef03",
+    "hpggobvoicef04",
+    "hpggobvoicem01",
+    "hpggobvoicem02",
+    "maledraknurd",
+    "maleuniquedbguardian",
+    "rigmormolagbalvoice",
+    "therelicvoice",
+    "olenveldidealmaster1",
+    "olenveldidealmaster2",
+    "olenveldidealmaster3",
+    "hpggobvoicem03",
+    "hpggobvoicem04",
+    "malechild",
+    "hpgshellvoice",
+    "indrinthfollowervoice"
     "femaleuniqueazura",
     "femaleuniqueboethiah",
     "femaleuniquemephala",
     "maleuniqueclavicusvile",
     "maleuniquehermaeusmora",
+    "alisenvoice",
     "femaleuniquemerida",
     "femaleuniquenamira",
     "femaleuniqueperiyte",
@@ -572,12 +601,12 @@ def main():
     original_total = len(voice_lines)
     
     # voice_lines = filter_empty_transcriptions(voice_lines, original_total)
-    # voice_lines = filter_forbidden_speakers(voice_lines, original_total)
+    voice_lines = filter_forbidden_speakers(voice_lines, original_total)
     # voice_lines = filter_forbidden_substrings(voice_lines, original_total)
     # voice_lines = filter_by_word_count(voice_lines, original_total)
     # voice_lines = filter_text_in_brackets(voice_lines, original_total)
     # voice_lines = filter_repetitive_words(voice_lines, original_total)
-    voice_lines = filter_missing_audios(voice_lines, original_total)
+    #voice_lines = filter_missing_audios(voice_lines, original_total)
     # voice_lines = filter_has_no_target_word(voice_lines, original_total)
     
     #voice_lines = measure_audio_durations(voice_lines)
@@ -598,7 +627,7 @@ def main():
     print(f"{Fore.YELLOW}Total removed: {removed_count} ({removed_count / initial_count:.2%})")
     voice_lines.save_to_yaml(OUTPUT_FILE)
     
-    copy_audio_files(voice_lines)
+    #copy_audio_files(voice_lines)
     
     return 0
 
