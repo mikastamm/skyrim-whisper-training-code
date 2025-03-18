@@ -255,3 +255,22 @@ Baseline Model (whisper-base.en):
   Average Overall WER: 19.11%
   Average Phrase Error: 49.95%
   Untestable Voice Lines: 0
+
+  # sorendal/skyrim-whisper-small
+Finetuned Model:
+  Average Overall WER: 9.80%
+  Average Phrase Error: 11.23%
+  Untestable Voice Lines: 0
+
+Commonvoice 15k 
+Checkpoint skyrim-whisper-small WER: 23.63%
+
+Baseline Model (whisper-base.en):
+  Average Overall WER: 19.11%
+  Average Phrase Error: 49.95%
+  Untestable Voice Lines: 0
+
+
+
+  # sorendal/skyrim-whisper-small-int8
+
