@@ -15,5 +15,4 @@ sounddevice
 colorama
 termcolor
 silero-vad
-faster-whisper
 ctranslate2
